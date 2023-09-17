@@ -11,6 +11,7 @@
           <th>ชื่อ</th>
           <th>นามสกุล</th>
           <th>เบอร์โทร</th>
+          <th>เรทติ้ง</th>
           <th></th>
         </tr>
       </thead>
@@ -19,7 +20,8 @@
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.phone }}</td>
-          <td><button type="button" class="btn btn-primary background-button-add">เพิ่มงาน</button></td>
+          <td>{{ data.maid_rating }}</td>
+          <button type="button"  class="btn btn-outline-success">+ เพิ่มตารางงาน</button>
         </tr>
       </tbody>
     </nz-table>
