@@ -1,11 +1,15 @@
-[nz-form] {
-    max-width: 600px;
+.form-nz{
+    max-width: 400px;
   }
   
-  .phone-select {
-    width: 70px;
-  }
-  
-  .register-area {
+.register-area {
     margin-bottom: 8px;
+  }
+
+.custom-margin {
+    margin-left: 140px;
+  }
+
+.card-title{
+    background-color: #F8F8F8;
   }

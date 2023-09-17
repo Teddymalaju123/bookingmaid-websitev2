@@ -1,8 +1,7 @@
 <div class="card">
   <div class="card-header" style="display: flex;
     justify-content: space-between;;">
-    <h2>Maid</h2>
-    <button type="button" class="btn btn-outline-success">+ เพิ่มแม่บ้าน</button>
+    <h2>Report</h2>
   </div>
   <div class="card-body">
     <nz-table #dataFeedbacks [nzData]="feedbacks">
@@ -11,8 +10,6 @@
           <th>ชื่อ</th>
           <th>นามสกุล</th>
           <th>ปัญหา</th>
-          <th>Action</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -20,13 +17,6 @@
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.feedback_description }}</td>
-          <td>
-            {{ data.lname }}
-          </td>
-          <td>
-            <button type="button" class="btn btn-primary">เพิ่มงาน</button>
-          </td>
-
         </tr>
       </tbody>
     </nz-table>
