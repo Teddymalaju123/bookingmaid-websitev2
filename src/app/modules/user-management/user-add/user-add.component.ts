@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-add',
@@ -13,15 +13,17 @@ export class UserAddComponent implements OnInit{
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      username: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      firstname: [null, [Validators.required]],
-      lastname: [null, [Validators.required]],
-      phoneNumberPrefix: ['+66'],
-      phoneNumber: [null, [Validators.required]],
-      roomnumber: [null, [Validators.required]],
-      roomsize: [null, [Validators.required]],
+      id_user: new FormControl<number | null>(null),
+      username: new FormControl<string | null>(null, Validators.required),
+      password: new FormControl<string | null>(null, Validators.required),
+      checkPassword: new FormControl<string | null>(null, Validators.required),
+      fname: new FormControl<string | null>(null),
+      lname: new FormControl<string | null>(null),
+      phone: new FormControl<string | null>(null),
+      roomnumber: new FormControl<string | null>(null, Validators.required),
+      roomsize: new FormControl<string | null>(null, Validators.required),
+      maid_rating: new FormControl<number | null>(null),
+      id_type: new FormControl<string | null>(null, Validators.required),
     });
   }
 

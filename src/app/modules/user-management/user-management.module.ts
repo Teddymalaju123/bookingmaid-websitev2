@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
-
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
@@ -30,7 +30,8 @@ const routes: Routes = [
     AntDesignModule,
     NzFormModule,
     NzInputModule,
-    NzSelectModule
+    NzSelectModule,
+    NzCardModule
   ],
   exports: [RouterModule],
 })
