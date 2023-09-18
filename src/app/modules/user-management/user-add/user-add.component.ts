@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Maid } from '../../maid/interface/miad.interface';
+import { ResidentService } from '../service/resident.service';
 
 @Component({
   selector: 'app-user-add',
@@ -8,8 +11,11 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 })
 export class UserAddComponent implements OnInit{
   validateForm!: FormGroup;
-
-  constructor(private fb: FormBuilder) {}
+  private router = inject(Router);
+  service: ResidentService = new ResidentService;
+  changeDetectorRef: ChangeDetectorRef | undefined
+  dataMaids: Maid[] = [];
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -22,15 +28,26 @@ export class UserAddComponent implements OnInit{
       roomnumber: new FormControl<string | null>(null, Validators.required),
       roomsize: new FormControl<string | null>(null, Validators.required),
       maid_rating: new FormControl<number | null>(null),
-      id_type: new FormControl<string | null>(null, Validators.required),
+      type_id: new FormControl<number | null>(null, Validators.required),
     });
   }
 
   submitForm(): void {
     if (this.validateForm.valid) {
+      this.service.createUser(this.validateForm.value, '/some-url').subscribe({
+        next: (response: any) => {
+          const data: any = response;
+          this.dataMaids = data;
+          this.changeDetectorRef?.detectChanges();
+          this.router.navigate(['/dashboard']);
+        },
+        error: (err) => {
+          console.log("error", err);
+        }
+      });
       console.log('submit', this.validateForm.value);
     } else {
-      console.log('submit', this.validateForm.value);
+      console.log('error mai kao valid', this.validateForm.value);
     }
   }
 

@@ -1,6 +1,5 @@
 
 
-
 export interface Maid {
   id_user: number
   username: string
@@ -12,5 +11,9 @@ export interface Maid {
   roomsize: string
   maid_rating: number
   type_id: number
+  id_worktime: number
+  status: string
+  workingtime : Date
+  endworking: Date
 }
 

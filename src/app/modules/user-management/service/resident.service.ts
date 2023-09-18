@@ -1,6 +1,7 @@
 import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ResidentService {
@@ -10,5 +11,10 @@ export class ResidentService {
     return this._http.get(environment.api_url + '/user/get-resident');
   }
 
+  createUser(req: any, url: string): Observable<any> {
+    // Provide the URL and the request body (req)
+    return this._http.post(environment.api_url + '/user/save' , req);
+  }
 
+  
 }

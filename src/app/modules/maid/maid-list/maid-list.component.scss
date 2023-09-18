@@ -22,3 +22,19 @@
     background-color: #4CAF50;
     color: white;
 }
+
+/* Add this CSS to your component's stylesheet */
+.large-form-item {
+    width: 100%; /* Adjust the width as needed */
+  }
+  
+  .large-form-control {
+    width: 100%; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+  }
+  
+  /* Apply the custom CSS classes to your nz-form-item and nz-form-control */
+  
+  form {
+    max-width: 600px;
+  }

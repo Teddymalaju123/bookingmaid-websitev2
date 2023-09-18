@@ -10,6 +10,13 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
+import { NzTimelineModule } from 'ng-zorro-antd/timeline';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzCalendarModule } from 'ng-zorro-antd/calendar';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +33,14 @@ import { NzCardModule } from 'ng-zorro-antd/card';
     NzFormModule,
     NzInputModule,
     NzSelectModule,
-    NzCardModule
+    NzCardModule,
+    NzModalModule,
+    NzButtonModule,
+    NzTimePickerModule,
+    NzTimelineModule,
+    NzDatePickerModule,
+    NzCalendarModule,
+    
 
   ]
 })

@@ -1,29 +1,56 @@
 <div class="card">
-  <div class="card-header" style="display: flex;
-    justify-content: space-between;;">
+  <div class="card-header" style="display: flex; justify-content: space-between;">
     <h2>Maid</h2>
-    <button type="button" (click)="this.add()" class="btn btn-outline-success">+ เพิ่มแม่บ้าน</button>
+    <button type="button" (click)="add()" class="btn btn-outline-success">+ เพิ่มแม่บ้าน</button>
   </div>
   <div class="card-body">
+    <!-- Insert your date and number elements here -->
+    <p>{{ someDate | date }}</p>
+    <p>{{ someNumber | number }}</p>
+
     <nz-table #dataMaid [nzData]="dataMaids">
       <thead>
         <tr>
+          <th>id</th>
           <th>ชื่อ</th>
           <th>นามสกุล</th>
           <th>เบอร์โทร</th>
           <th>เรทติ้ง</th>
+          <th>เวลาเริ่มงาน</th>
+          <th>เวลาจบงาน</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
+      <tbody>
         <tr *ngFor="let data of dataMaid.data">
+          <td>{{ data.id_user }}</td>
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.phone }}</td>
           <td>{{ data.maid_rating }}</td>
-          <button type="button"  class="btn btn-outline-success">+ เพิ่มตารางงาน</button>
+          <td>{{ data.workingtime}}</td>
+          <td>{{ data.endworking}}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="showModal(data.id_user)">
+              <span>+ ตารางงานแม่บ้าน</span>
+            </button>
+          </td>
         </tr>
       </tbody>
+      <nz-modal [(nzVisible)]="isVisible" nzTitle="Maid Work" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+        [nzOkLoading]="isOkLoading" [nzWidth]="'80%'">
+        <div *nzModalContent>
+          <form nz-form [formGroup]="validateForm" (ngSubmit)="handleOk()">
+            <nz-form-item class="large-form-item">
+              <nz-form-label [nzSm]="4" [nzXs]="30" nzRequired>ลงตารางเวลา</nz-form-label>
+              <nz-form-control [nzSm]="16" [nzXs]="24">
+                <nz-range-picker nzShowTime formControlName="rangePickerTime"></nz-range-picker>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </div>
+      </nz-modal>
     </nz-table>
   </div>
 </div>

@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MaidService } from '../service/maid.service';
+import { Maid } from '../interface/miad.interface';
 
 @Component({
   selector: 'app-maid-add',
@@ -8,7 +11,10 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 })
 export class MaidAddComponent {
   validateForm!: FormGroup;
-
+  private router = inject(Router);
+  service: MaidService = new MaidService;
+  changeDetectorRef: ChangeDetectorRef | undefined
+  dataMaids: Maid[] = [];
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -19,18 +25,29 @@ export class MaidAddComponent {
       fname: new FormControl<string | null>(null),
       lname: new FormControl<string | null>(null),
       phone: new FormControl<string | null>(null),
-      roomnumber: new FormControl<string | null>(null, Validators.required),
-      roomsize: new FormControl<string | null>(null, Validators.required),
+      roomnumber: new FormControl<string | null>(null),
+      roomsize: new FormControl<string | null>(null),
       maid_rating: new FormControl<number | null>(null),
-      id_type: new FormControl<string | null>(null, Validators.required),
+      type_id: new FormControl<number | null>(null, Validators.required),
     });
   }
 
   submitForm(): void {
     if (this.validateForm.valid) {
+      this.service.createMaid(this.validateForm.value, '/some-url').subscribe({
+        next: (response: any) => {
+          const data: any = response;
+          this.dataMaids = data;
+          this.changeDetectorRef?.detectChanges();
+          this.router.navigate(['/dashboard']);
+        },
+        error: (err) => {
+          console.log("error", err);
+        }
+      });
       console.log('submit', this.validateForm.value);
     } else {
-      console.log('submit', this.validateForm.value);
+      console.log('error mai kao valid', this.validateForm.value);
     }
   }
 }

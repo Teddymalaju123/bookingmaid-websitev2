@@ -3,12 +3,7 @@ import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Maid } from '../../maid/interface/miad.interface';
 import { ResidentService } from '../service/resident.service';
 
-interface Person {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
+
 
 @Component({
   selector: 'app-user-list',
