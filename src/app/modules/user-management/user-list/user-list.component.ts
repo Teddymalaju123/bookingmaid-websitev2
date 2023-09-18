@@ -30,6 +30,7 @@ export class UserListComponent implements OnInit {
       }
     });
   }
+  
   add() {
     this.router.navigate(['/user/user-add']);
   }

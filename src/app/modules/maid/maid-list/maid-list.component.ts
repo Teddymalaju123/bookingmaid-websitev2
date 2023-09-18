@@ -116,16 +116,12 @@ export class MaidListComponent implements OnInit {
   }
 
   deleteMaidTime(id_worktime: number): void {
-    // Call your service to delete the maid work time by its ID
     this.service.deleteMaidTime(id_worktime).subscribe({
-      next: () => {
-        // Handle success
+      next: (response: any) => {
         console.log('Maid work time deleted successfully.');
-        // Optionally, you can refresh the list of maid work times by calling a function to get them again
         this.getMaid();
       },
       error: (err) => {
-        // Handle error
         console.error('Error deleting maid work time:', err);
       },
     });
