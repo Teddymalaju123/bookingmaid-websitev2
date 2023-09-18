@@ -1,9 +1,7 @@
 <div class="wrapper">
     <nav id="sidebar" class="shadow">
         <div class="sidebar-header text-center">
-            <img class="logo"
-                [src]="imageUrl"
-                alt="logo" style="width: 280px;">
+            <img class="logo" [src]="imageUrl" alt="logo" style="width: 280px;">
         </div>
 
         <ul class="list-unstyled list-main components mt-4">
@@ -27,16 +25,13 @@
                     <i class="fa fa-flag" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;รายงานปัญหา
                 </a>
             </li>
-             <li>
+            <li>
                 <a routerLink="/login">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;ออกจากระบบ
                 </a>
             </li>
         </ul>
     </nav>
-
-
-    <!-- Page Content  -->
     <div id="content">
         <nav class="navbar navbar-expand-lg navbar-dark bg-light shadow colorNav p-3">
             <div class="container-fluid">
@@ -45,33 +40,17 @@
                 <div style="color: azure;">
                     ผู้ใช้งาน: นายเอ ใจดี
                 </div>
-
-                <!-- <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown" style="padding-right: 44px">
-                        <a class="dropdown-toggle user" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user "></i> นาย เอ
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu p-2">
-                            <li>
-                                <a routerLink="/login"><i class="fa fa-sign-out text-danger"></i> Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul> -->
             </div>
         </nav>
         <div class="container-fluid">
-            <!-- alert success -->
             <div class="alert alert-success alert-dismissible fade show" style="display: none" id="alert-success">
                 <a class="close" onclick="$('#alert-success').hide()">×</a>
                 <strong>Warning!</strong> Best check yo self, you're not looking too good.
             </div>
-            <!-- alert danger -->
             <div class="alert alert-danger alert-dismissible fade show" style="display: none" id="alert-danger">
                 <a class="close" onclick="$('#alert-danger').hide()">×</a>
                 <strong>Danger!</strong> fail process.
             </div>
-            <!-- alert warning -->
             <div class="alert alert-warning alert-dismissible fade show" style="display: none" id="alert-warning">
                 <a class="close" onclick="$('#alert-warning').hide()">×</a>
                 <strong>Warning!</strong> Warning process.
