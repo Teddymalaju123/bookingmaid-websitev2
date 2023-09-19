@@ -1,15 +1,23 @@
-.form-nz{
-    max-width: 600px;
-  }
-  
-.register-area {
-    margin-bottom: 8px;
-  }
-
-.custom-margin {
-    margin-left: 140px;
+.card-title {
+  background-color: #F5F5F5; 
+  color: #fff; 
+  text-align: center; 
+  font-size: 24px; 
+  padding: 16px; 
 }
 
-.card-title{
-    background-color: #F8F8F8;
+.nz-form-control {
+  margin-bottom: 16px; 
+}
+
+button {
+  width: 100%; 
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+button:hover{
+  background-color: #4CAF50;
+    color: white;
 }

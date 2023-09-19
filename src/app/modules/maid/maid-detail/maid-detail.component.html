@@ -19,12 +19,13 @@
                     <td>{{ this.convertToThaiDateTime(data.workingtime) }}</td>
                     <td>{{ data.status }}</td>
                     <td>
-                        <button nz-button nzType="primary" (click)="deleteMaidTime(data.id_worktime)">ลบตารางการทำงานแม่บ้าน</button>
+                        <button nz-button nzType="primary" (click)="deleteMaidTime(data.id_worktime)" class="custom-button">ลบตารางการทำงานแม่บ้าน</button>
                     </td>
                     <td>
                     </td>
                 </tr>
             </tbody>
         </nz-table>
+        <button nz-button nzType="primary" (click)="Back()" class="custom-button">Back</button>
     </div>
 </div>

@@ -59,4 +59,8 @@ export class MaidDetailComponent implements OnInit {
       }
     );
   }
+
+  Back(){
+    this._router.navigate(['/maid/maid-list']);
+  }
 }
