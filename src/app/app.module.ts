@@ -6,7 +6,7 @@ import localEn from '@angular/common/locales/en';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './modules/authentication/login/login.component';
-import { ForgotPasswordComponent } from './modules/authentication/forgot-password/forgot-password.component';
+
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +23,7 @@ registerLocaleData(localEn,'en');
   declarations: [
     AppComponent,
     LoginComponent,
-    ForgotPasswordComponent
+
   ],
   imports: [
     BrowserAnimationsModule,
