@@ -25,8 +25,8 @@ export class UserAddComponent implements OnInit{
       fname: new FormControl<string | null>(null),
       lname: new FormControl<string | null>(null),
       phone: new FormControl<string | null>(null),
-      roomnumber: new FormControl<string | null>(null, Validators.required),
-      roomsize: new FormControl<string | null>(null, Validators.required),
+      roomnumber: new FormControl<string | null>(null),
+      roomsize: new FormControl<string | null>(null),
       maid_rating: new FormControl<number | null>(null),
       type_id: new FormControl<number | null>(null, Validators.required),
     });

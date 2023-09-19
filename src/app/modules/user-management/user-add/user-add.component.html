@@ -1,4 +1,4 @@
-<nz-card nzTitle="Card title" class="card-title">
+<nz-card nzTitle="Maid" class="card-title">
     <form nz-form [formGroup]="validateForm" class="form-nz">
         <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">Username</nz-form-label>
@@ -36,22 +36,6 @@
                 <input nz-input id="phone" formControlName="phone" />
             </nz-form-control>
         </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
-                <span>Roomnumber</span>
-            </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your roomnumber!">
-                <input nz-input id="roomnumber" formControlName="roomnumber" />
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
-                <span>Roomsize</span>
-            </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your roomsize!">
-                <input nz-input id="roomsize" formControlName="roomsize" />
-            </nz-form-control>
-        </nz-form-item>
         <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
             class="custom-margin">
             <nz-option nzLabel="resident" nzValue=2></nz-option>
@@ -61,7 +45,7 @@
         </nz-form-item>
         <nz-form-item nz-row class="register-area">
             <nz-form-control [nzSpan]="14" [nzOffset]="6">
-                <button nz-button nzType="primary" (click)="this.submitForm()">Register</button>
+                <button nz-button nzType="primary" (click)="submitForm()">Register</button>
             </nz-form-control>
         </nz-form-item>
     </form>

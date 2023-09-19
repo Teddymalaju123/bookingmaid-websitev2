@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
   imports: [
     CommonModule,
     LayoutRoutingModule,
+    NzAutocompleteModule
+    
   ]
 })
 export class LayoutModule { }

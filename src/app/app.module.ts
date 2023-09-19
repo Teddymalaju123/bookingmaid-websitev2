@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AntDesignModule } from './common/ant-design.module';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
+
 
 registerLocaleData(localEn,'en');
 
@@ -31,7 +34,9 @@ registerLocaleData(localEn,'en');
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    AntDesignModule
+    AntDesignModule,
+    NzCarouselModule,
+    NzAutocompleteModule
   ],
   providers: [
     // ... other providers
