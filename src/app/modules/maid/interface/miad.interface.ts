@@ -1,5 +1,3 @@
-
-
 export interface Maid {
   id_user: number
   username: string
