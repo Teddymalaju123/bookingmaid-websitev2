@@ -115,16 +115,61 @@ export class MaidListComponent implements OnInit {
     this.router.navigate(['/user/user-add']);
   }
 
-  deleteMaidTime(id_worktime: number): void {
-    this.service.deleteMaidTime(id_worktime).subscribe({
-      next: (response: any) => {
-        console.log('Maid work time deleted successfully.');
-        this.getMaid();
+  isTimeModalVisible = false;
+  isTimeOkLoading = false;
+
+  showTimeModal(id_user: number): void {
+    this.selectedUserId = id_user;
+    this.isTimeModalVisible = true;
+  }
+
+  handleTimeCancel(): void {
+    this.isTimeModalVisible = false;
+  }
+
+  handleTimeOk(): void {
+    const { startTime, endTime } = this.editForm.value;
+  
+    if (!startTime || !endTime) {
+      console.error('Please select valid start and end times.');
+      return;
+    }
+  
+    if (this.selectedUserId === null) {
+      console.error('Please select a user.');
+      return;
+    }
+  
+    const id_user: number = this.selectedUserId;
+  
+    const timeData: Work = {
+      id_worktime: 0,
+      status: 'เริ่มงาน',
+      workingtime: startTime,
+      endworking: endTime,
+      id_user: id_user,
+    };
+  
+    this.service.saveTime(timeData).subscribe({
+      next: (_response: any) => {
+        this.isTimeModalVisible = false;
       },
       error: (err) => {
-        console.error('Error deleting maid work time:', err);
+        console.log('error', err);
       },
     });
+  }
+
+  deleteMaidTime(id_worktime: number): void {
+    this.service.deleteMaidTime(id_worktime).subscribe(
+      () => {
+        console.log(`ลบตารางงานแม่บ้าน ID: ${id_worktime} สำเร็จ`);
+      },
+      (error) => {
+        console.log(`ID: ${id_worktime} `);
+        console.error(`เกิดข้อผิดพลาดในการลบตารางงานแม่บ้าน: ${error}`);
+      }
+    );
   }
 }
 

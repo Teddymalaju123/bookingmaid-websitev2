@@ -1,6 +1,5 @@
 .colorNav{
   background:  linear-gradient(to right, #0d5302, #26a69a);
-  /* background-color: #4686d8 !important;  */
   margin-bottom: 17px;
 }
 h4.logo{
@@ -41,11 +40,7 @@ ul.list-main>li{
 #sidebar.active {
   margin-left: -300px;
 }
-/* #sidebar {
-  min-width: 350px;
-  max-width: 350px;
-  min-height: 100vh;
-} */
+
 a[data-toggle="collapse"], .table {
   position: relative;
   width: 100%;
@@ -58,13 +53,11 @@ a[data-toggle="collapse"], .table {
   right: 20px;
   transform: translateY(-50%);
 }
-/* a.dropdown-toggle{
-  font-size: 16px !important;
-} */
 
 ul.components > li>ul>li>a {
   font-size: 14px !important;
 }
+
 @media (max-width: 768px) {
   #sidebar {
       margin-left: -250px;
@@ -76,24 +69,17 @@ ul.components > li>ul>li>a {
 
 
 #sidebar {
-    /* don't forget to add all the previously mentioned styles here too */
-    background: #ffffff;
+    background: #F5F5F5;
     color: #4686d8;
     transition: all 0.3s;
-    /* font-size: 18px; */
 }
 
 #sidebar .sidebar-header {
   padding: 7.5px;
-  background: rgb(255, 255, 255);
+  background: #F5F5F5;
   color: #ffffff;
-  /* border-bottom: 3px solid #4686d8; */
 }
 
-/* #sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #143d3a;
-} */
 
 #sidebar ul.list-main p {
     color: rgb(37, 110, 245);
@@ -102,12 +88,12 @@ ul.components > li>ul>li>a {
 
 #sidebar ul.list-main li a {
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
     display: block;
 }
 #sidebar ul.list-main li a:hover {
     color: #0d5302;
-    /* background: rgb(224, 141, 47); */
+    background: #E8E8E8;
 }
 
 #sidebar ul.list-main li.active > a, a[aria-expanded="true"] {

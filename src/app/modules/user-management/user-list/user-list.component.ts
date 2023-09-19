@@ -15,6 +15,7 @@ export class UserListComponent implements OnInit {
   private _changeDetectorRef = inject(ChangeDetectorRef);
   private router = inject(Router);
   dataResident: Maid[] = [];
+  isVisible = false;
   ngOnInit(): void {
     this.getResident()
   }
@@ -33,5 +34,23 @@ export class UserListComponent implements OnInit {
   
   add() {
     this.router.navigate(['/user/user-add']);
+    
+  }
+
+  dataDetails: any;
+
+showModal(data: any): void {
+  this.dataDetails = data; // กำหนดข้อมูลรายละเอียดให้กับตัวแปร dataDetails
+  this.isVisible = true;
+}
+
+handleOk(): void {
+  console.log('Button ok clicked!');
+  this.isVisible = false;
+}
+  
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
   }
 }
