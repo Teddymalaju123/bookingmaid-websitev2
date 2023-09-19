@@ -14,14 +14,17 @@ export class MaidService {
 
   createMaid(req: any, url: string): Observable<any> {
     // Provide the URL and the request body (req)
-    return this._http.post(environment.api_url + '/user/save' , req);
+    return this._http.post(environment.api_url + '/user/save', req);
   }
-  
+
   saveTime(timeData: any): Observable<any> {
     return this._http.post(environment.api_url + '/maidwork/savework', timeData);
   }
 
-  deleteMaidTime(id_worktime: any): Observable<any>{
-    return this._http.delete(environment.api_url +'/maidwork/deletemaid/:id', id_worktime);
+  deleteMaidTime(id_worktime: any): Observable<any> {
+    return this._http.delete(environment.api_url + '/maidwork/deletemaid/:id', id_worktime);
+  }
+  getMaidById(id: any) {
+    return this._http.get(environment.api_url + '/maidwork/getwork/' + id);
   }
 }

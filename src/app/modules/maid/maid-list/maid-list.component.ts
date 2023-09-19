@@ -115,13 +115,17 @@ export class MaidListComponent implements OnInit {
     this.router.navigate(['/maid/maid-add']);
   }
 
-  detail(){
-    this.router.navigate(['/maid/maid-detail']);
+  detail(id: any) {
+    this.router.navigate(['/maid/maid-detail'], {
+      queryParams: {
+        id_user: id
+      }
+    });
   }
 }
 
 
 
-  
-  
+
+
 
