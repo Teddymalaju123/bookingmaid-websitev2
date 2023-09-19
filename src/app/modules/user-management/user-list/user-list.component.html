@@ -25,9 +25,10 @@
           <td>{{ data.roomsize }}</td>
           <td>
             <button nz-button [nzType]="'primary'" (click)="showModal(data)" class="custom-primary-button">
-              <span>ดูรายละเอียด</span>
+              ดูรายละเอียด
             </button>
-            <nz-modal [(nzVisible)]="isVisible" nzTitle="รายละเอียดข้อมูล" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" class="custom-modal">
+            <nz-modal [(nzVisible)]="isVisible" nzTitle="รายละเอียดข้อมูล" (nzOnCancel)="handleCancel()"
+              (nzOnOk)="handleOk()" class="custom-modal">
               <ng-container *nzModalContent>
                 <p>หมายเลขห้อง: {{ dataDetails?.roomnumber }}</p>
                 <p>ชื่อ: {{ dataDetails?.fname }}</p>
@@ -36,6 +37,10 @@
                 <p>ขนาดห้อง: {{ dataDetails?.roomsize }}</p>
               </ng-container>
             </nz-modal>
+          </td>
+          <td>
+            <button nz-button nzType="primary" (click)="deleteUser(data.id_user)"
+              class="custom-primary-button">ลบลูกบ้าน</button>
           </td>
         </tr>
       </tbody>

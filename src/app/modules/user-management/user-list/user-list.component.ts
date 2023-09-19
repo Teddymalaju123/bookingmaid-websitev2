@@ -53,4 +53,15 @@ export class UserListComponent implements OnInit {
     this.isVisible = false;
   }
 
+  deleteUser(id_user: number): void {
+    this.service.deleteUser(id_user).subscribe(
+      (response) => {
+        console.log('ลบข้อมูลสำเร็จ')
+      },
+      (error) => {
+        console.error('เกิดข้อผิดพลาดในการลบตารางการทำงานแม่บ้าน:', error);
+      }
+    );
+  }
+
 }

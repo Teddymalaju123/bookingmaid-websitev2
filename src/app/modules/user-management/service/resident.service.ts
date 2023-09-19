@@ -16,5 +16,9 @@ export class ResidentService {
     return this._http.post(environment.api_url + '/user/save' , req);
   }
 
+  deleteUser(id_user: number): Observable<any> {
+    const url = `${environment.api_url}/user/delete/${id_user}`;
+    return this._http.delete(url);
+  }
   
 }

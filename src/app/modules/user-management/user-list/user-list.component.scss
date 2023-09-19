@@ -1,18 +1,17 @@
-/* ปรับสีของปุ่มดูรายละเอียด */
 .custom-primary-button {
     background-color: white; 
     color: black; 
     border: 2px solid #4CAF50;
   }
 
-  .custom-primary-button:hover {
+.custom-primary-button:hover {
     background-color: #4CAF50;
     color: white;
 }
   
-  /* ปรับสีของหน้าต่าง modal */
-  .custom-modal {
-    background-color: #fdfdfd; /* สีพื้นหลังของ modal */
-    border-color: #ccc; /* สีขอบของ modal */
-    color: #333; /* สีตัวหนังสือใน modal */
-  }
+ 
+.custom-modal {
+    background-color: #fdfdfd; 
+    border-color: #ccc; 
+    color: #333; 
+}
