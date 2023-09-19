@@ -1,20 +1,20 @@
 <nz-card nzTitle="Create Maid" class="card-title">
     <form nz-form [formGroup]="validateForm" class="form-nz">
         <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">Username</nz-form-label>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">ชื่อผู้ใช้</nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid username!">
                 <input nz-input formControlName="username" id="username" />
             </nz-form-control>
         </nz-form-item>
         <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>รหัสผ่าน</nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
                 <input nz-input type="password" id="password" formControlName="password" />
             </nz-form-control>
         </nz-form-item>
         <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="fname" nzRequired>
-                <span>FirstName</span>
+                <span>ชื่อจริง</span>
             </nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your firstname!">
                 <input nz-input id="fname" formControlName="fname" />
@@ -22,7 +22,7 @@
         </nz-form-item>
         <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lname" nzRequired>
-                <span>LastName</span>
+                <span>นามสกุล</span>
             </nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your lastname!">
                 <input nz-input id="lname" formControlName="lname" />
@@ -30,7 +30,7 @@
         </nz-form-item>
         <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>
-                <span>phoneNumber</span>
+                <span>เบอร์โทรศัพท์</span>
             </nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your phone!">
                 <input nz-input id="phone" formControlName="phone" />
@@ -45,7 +45,7 @@
         </nz-form-item>
         <nz-form-item nz-row class="register-area">
             <nz-form-control [nzSpan]="14" [nzOffset]="6">
-                <button nz-button nzType="primary" (click)="this.submitForm()">Register</button>
+                <button nz-button nzType="primary" (click)="this.submitForm()">สมัคร</button>
             </nz-form-control>
         </nz-form-item>
     </form>
