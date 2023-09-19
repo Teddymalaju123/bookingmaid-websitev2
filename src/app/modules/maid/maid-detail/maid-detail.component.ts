@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MaidService } from '../service/maid.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { MaidService } from '../service/maid.service';
 export class MaidDetailComponent implements OnInit {
   private _router = inject(Router);
   private _route = inject(ActivatedRoute);
+  private notification = inject(NzNotificationService);
   private maidService = inject(MaidService);
   data: any[] = []
   id_user: any;
@@ -44,8 +46,17 @@ export class MaidDetailComponent implements OnInit {
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');
     const seconds = date.getSeconds().toString().padStart(2, '0');
-
     return `${date.getDate()} ${thaiMonth} ${thaiYear} ${hours}:${minutes}:${seconds}`;
   }
 
+  deleteMaidTime(id_worktime: number): void {
+    this.maidService.deleteMaidTime(id_worktime).subscribe(
+      (response) => {
+        console.log('ลบข้อมูลสำเร็จ')
+      },
+      (error) => {
+        console.error('เกิดข้อผิดพลาดในการลบตารางการทำงานแม่บ้าน:', error);
+      }
+    );
+  }
 }

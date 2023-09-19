@@ -13,7 +13,6 @@ export class MaidService {
   }
 
   createMaid(req: any, url: string): Observable<any> {
-    // Provide the URL and the request body (req)
     return this._http.post(environment.api_url + '/user/save', req);
   }
 
@@ -21,10 +20,14 @@ export class MaidService {
     return this._http.post(environment.api_url + '/maidwork/savework', timeData);
   }
 
-  deleteMaidTime(id_worktime: any): Observable<any> {
-    return this._http.delete(environment.api_url + '/maidwork/deletemaid/:id', id_worktime);
+  deleteMaidTime(id_worktime: number): Observable<any> {
+    const url = `${environment.api_url}/maidwork/deletemaid/${id_worktime}`;
+    return this._http.delete(url);
   }
+
   getMaidById(id: any) {
     return this._http.get(environment.api_url + '/maidwork/getwork/' + id);
   }
 }
+
+

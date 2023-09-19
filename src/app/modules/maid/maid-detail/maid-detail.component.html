@@ -1,26 +1,30 @@
 <div class="card">
-  <div class="card-header" style="display: flex;
+    <div class="card-header" style="display: flex;
       justify-content: space-between;;">
-    <h2>ตารางงานแม่บ้าน</h2>
-  </div>
-  <div class="card-body">
-    <nz-table #dataItem [nzData]="data">
-      <thead>
-        <tr>
-          <th>เวลาเข้างาน</th>
-          <th>เวลาออกงาน</th>
-          <th>สถานะ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of dataItem.data">
-          <td>{{ this.convertToThaiDateTime(data.endworking )}}</td>
-          <td>{{ this.convertToThaiDateTime(data.workingtime) }}</td>
-          <td>{{ data.status }}</td>
-          <td>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
-  </div>
+        <h2>ตารางงานแม่บ้าน</h2>
+    </div>
+    <div class="card-body">
+        <nz-table #dataItem [nzData]="data">
+            <thead>
+                <tr>
+                    <th>เวลาเข้างาน</th>
+                    <th>เวลาออกงาน</th>
+                    <th>สถานะ</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of dataItem.data">
+                    <td>{{ this.convertToThaiDateTime(data.endworking )}}</td>
+                    <td>{{ this.convertToThaiDateTime(data.workingtime) }}</td>
+                    <td>{{ data.status }}</td>
+                    <td>
+                        <button nz-button nzType="primary" (click)="deleteMaidTime(data.id_worktime)">ลบตารางการทำงานแม่บ้าน</button>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </div>
 </div>
