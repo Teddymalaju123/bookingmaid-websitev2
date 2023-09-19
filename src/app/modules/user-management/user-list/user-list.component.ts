@@ -34,23 +34,23 @@ export class UserListComponent implements OnInit {
   
   add() {
     this.router.navigate(['/user/user-add']);
-    
   }
 
   dataDetails: any;
 
-showModal(data: any): void {
-  this.dataDetails = data; // กำหนดข้อมูลรายละเอียดให้กับตัวแปร dataDetails
-  this.isVisible = true;
-}
+  showModal(data: any): void {
+    this.dataDetails = data; // กำหนดข้อมูลรายละเอียดให้กับตัวแปร dataDetails
+    this.isVisible = true;
+  }
 
-handleOk(): void {
-  console.log('Button ok clicked!');
-  this.isVisible = false;
-}
+  handleOk(): void {
+    console.log('Button ok clicked!');
+    this.isVisible = false;
+  }
   
   handleCancel(): void {
     console.log('Button cancel clicked!');
     this.isVisible = false;
   }
+
 }

@@ -39,7 +39,7 @@ export class MaidAddComponent {
           const data: any = response;
           this.dataMaids = data;
           this.changeDetectorRef?.detectChanges();
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/maid/maid-list']);
         },
         error: (err) => {
           console.log("error", err);

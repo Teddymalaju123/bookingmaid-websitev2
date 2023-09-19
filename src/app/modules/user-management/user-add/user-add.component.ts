@@ -50,9 +50,4 @@ export class UserAddComponent implements OnInit{
       console.log('error mai kao valid', this.validateForm.value);
     }
   }
-
-
-
-
-
 }

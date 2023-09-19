@@ -38,11 +38,9 @@ export class MaidDetailComponent implements OnInit {
       "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
       "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
     ];
-
     const date = new Date(inputDate);
     const thaiMonth = monthsInThai[date.getMonth()];
-    const thaiYear = date.getFullYear() + 543; // Convert to Buddhist Era (BE) year
-
+    const thaiYear = date.getFullYear() + 543; 
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');
     const seconds = date.getSeconds().toString().padStart(2, '0');

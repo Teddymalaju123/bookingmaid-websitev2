@@ -29,13 +29,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // login() {
-
-
-  //   this.router.navigate(['/dashboard']);
-  // }
-
-
   login(): void {
     this.authService.login(this.formGroup.value).subscribe({
       next: (response: any) => {
@@ -43,8 +36,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
-        this.createNotification()
-
+        this.createNotification();
       }
     });
   }

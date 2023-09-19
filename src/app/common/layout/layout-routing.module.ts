@@ -31,7 +31,6 @@ const routes: Routes = [
             (m) => m.ReportmaidModule
           ),
       },
-      // { path: 'meetingroom', loadChildren: '../../page/meeting-room/meeting-room.module#MeetingRoomModule'}
     ]
   },
 ];
