@@ -16,12 +16,14 @@ import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
+import { MaidDetailComponent } from './maid-detail/maid-detail.component';
 
 
 @NgModule({
   declarations: [
     MaidListComponent,
     MaidAddComponent,
+    MaidDetailComponent,
   ],
   imports: [
     FormsModule,

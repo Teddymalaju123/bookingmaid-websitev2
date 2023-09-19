@@ -27,29 +27,9 @@
             </button>
           </td>
           <td>
-            <button nz-button nzType="primary" (click)="showTimeModal(data.id_user)" class="custom-button">
-              แก้ไขเวลาตารางงานแม่บ้าน
+            <button nz-button nzType="primary" (click)="detail()" class="custom-button">
+              ดูรายละเอียดแม่บ้าน
             </button>
-            <nz-modal [(nzVisible)]="isTimeModalVisible" nzTitle="แก้ไขเวลาตารางงานแม่บ้าน"
-              (nzOnCancel)="handleTimeCancel()" (nzOnOk)="handleTimeOk()" [nzOkLoading]="isTimeOkLoading"
-              [nzWidth]="'45%'">
-              <div *nzModalContent>
-                <form nz-form [formGroup]="editForm" (ngSubmit)="handleTimeOk()">
-                  <nz-form-item class="large-form-item">
-                    <nz-form-label [nzSm]="4" [nzXs]="30" nzRequired>เวลาเริ่มงาน</nz-form-label>
-                    <nz-form-control [nzSm]="16" [nzXs]="24">
-                      <nz-time-picker nzAllowEmpty formControlName="startTime"></nz-time-picker>
-                    </nz-form-control>
-                  </nz-form-item>
-                  <nz-form-item class="large-form-item">
-                    <nz-form-label [nzSm]="4" [nzXs]="30" nzRequired>เวลาสิ้นสุดงาน</nz-form-label>
-                    <nz-form-control [nzSm]="16" [nzXs]="24">
-                      <nz-time-picker nzAllowEmpty formControlName="endTime"></nz-time-picker>
-                    </nz-form-control>
-                  </nz-form-item>
-                </form>
-              </div>
-            </nz-modal>
           </td>
         </tr>
       </tbody>

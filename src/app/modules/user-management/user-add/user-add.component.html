@@ -36,6 +36,14 @@
                 <input nz-input id="phone" formControlName="phone" />
             </nz-form-control>
         </nz-form-item>
+        <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
+                <span>roomnumber</span>
+            </nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your roomnumber!">
+                <input nz-input id="roomnumber" formControlName="roomnumber" />
+            </nz-form-control>
+        </nz-form-item>
         <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
             class="custom-margin">
             <nz-option nzLabel="resident" nzValue=2></nz-option>
