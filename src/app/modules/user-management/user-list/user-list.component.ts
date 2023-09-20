@@ -39,7 +39,7 @@ export class UserListComponent implements OnInit {
   dataDetails: any;
 
   showModal(data: any): void {
-    this.dataDetails = data; // กำหนดข้อมูลรายละเอียดให้กับตัวแปร dataDetails
+    this.dataDetails = data; 
     this.isVisible = true;
   }
 

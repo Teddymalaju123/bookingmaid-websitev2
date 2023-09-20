@@ -98,7 +98,6 @@ ul.components > li>ul>li>a {
 
 #sidebar ul.list-main li.active > a, a[aria-expanded="true"] {
     color: #4686d8;
-    /* background: rgb(224, 141, 47); */
 }
 ul.list-main ul a {
   font-size: 14px !important;

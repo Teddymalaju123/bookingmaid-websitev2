@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { Maid } from '../interface/miad.interface';
 import { MaidService } from '../service/maid.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'; // Use FormBuilder from '@angular/forms'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'; 
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { Work } from '../interface/work.interface';
@@ -28,7 +28,7 @@ export class MaidListComponent implements OnInit {
 
 
   constructor(
-    private fb: FormBuilder, // Use FormBuilder instead of UntypedFormBuilder
+    private fb: FormBuilder, 
     router: Router,
     service: MaidService,
     _changeDetectorRef: ChangeDetectorRef

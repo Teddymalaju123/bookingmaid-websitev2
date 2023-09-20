@@ -12,7 +12,6 @@ export class ResidentService {
   }
 
   createUser(req: any, url: string): Observable<any> {
-    // Provide the URL and the request body (req)
     return this._http.post(environment.api_url + '/user/save' , req);
   }
 
