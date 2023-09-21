@@ -12,6 +12,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 
 const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
     NzCardModule,
     NzModalModule,
     NzButtonModule,
+    NzTreeSelectModule,
     
   ],
   exports: [RouterModule],

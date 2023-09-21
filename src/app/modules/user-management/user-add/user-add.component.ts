@@ -3,6 +3,7 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Maid } from '../../maid/interface/miad.interface';
 import { ResidentService } from '../service/resident.service';
+import { NzTreeNodeOptions } from 'ng-zorro-antd/tree';
 
 @Component({
   selector: 'app-user-add',
@@ -15,6 +16,7 @@ export class UserAddComponent implements OnInit{
   service: ResidentService = new ResidentService;
   changeDetectorRef: ChangeDetectorRef | undefined
   dataMaids: Maid[] = [];
+  nodes: NzTreeNodeOptions[] = [];
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -30,7 +32,47 @@ export class UserAddComponent implements OnInit{
       maid_rating: new FormControl<number | null>(null),
       type_id: new FormControl<number | null>(null, Validators.required),
     });
+
+    const dig = (startPath = '7', maxStartPath = 35, leafCount = 17, maxSubKeyIndex = 486): NzTreeNodeOptions[] => {
+      const list = [];
+      let subKeyIndex = 1; // ค่าเริ่มต้นของ subKeyIndex
+      
+      for (let i = parseInt(startPath); i <= maxStartPath; i++) {
+        const key = `${i}`;
+        const treeNode: NzTreeNodeOptions = {
+          title: key,
+          key,
+          expanded: true,
+          children: [],
+          isLeaf: false,
+        };
+    
+        for (let j = 0; j < leafCount && subKeyIndex <= maxSubKeyIndex; j++) {
+          const subKey = `860/${subKeyIndex}`;
+          const subTreeNode: NzTreeNodeOptions = {
+            title: subKey,
+            key: subKey,
+            expanded: true,
+            isLeaf: true,
+          };
+    
+          if (treeNode.children) {
+            treeNode.children.push(subTreeNode);
+          } else {
+            treeNode.children = [subTreeNode];
+          }
+    
+          subKeyIndex++; // เพิ่มค่า subKeyIndex ทีละ 1
+        }
+    
+        list.push(treeNode);
+      }
+      return list;
+    };
+    
+    this.nodes = dig();
   }
+
 
   submitForm(): void {
     if (this.validateForm.valid) {

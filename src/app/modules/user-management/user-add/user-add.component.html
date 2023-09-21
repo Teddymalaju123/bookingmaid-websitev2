@@ -36,20 +36,16 @@
                 <input nz-input id="phone" formControlName="phone" />
             </nz-form-control>
         </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
-                <span>เลขห้อง</span>
-            </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your roomnumber!">
-                <input nz-input id="roomnumber" formControlName="roomnumber" />
-            </nz-form-control>
+        <nz-tree-select style="width: 250px" [nzNodes]="nodes" nzShowSearch nzPlaceHolder="Please select"
+            nzVirtualHeight="300px" nzHideUnMatched="true" formControlName="roomnumber"></nz-tree-select>
+        <nz-form-item nz-row class="register-area">
         </nz-form-item>
         <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
                 <span>ขนาดห้อง</span>
             </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your roomnumber!">
-                <input nz-input id="roomnumber" formControlName="roomnumber" />
+            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your roomsize!">
+                <input nz-input id="roomsize" formControlName="roomsize" />
             </nz-form-control>
         </nz-form-item>
         <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
