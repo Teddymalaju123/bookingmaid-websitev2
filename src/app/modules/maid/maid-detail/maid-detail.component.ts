@@ -56,6 +56,14 @@ export class MaidDetailComponent implements OnInit {
     );
   }
 
+  editmaid(id: any) {
+    this._router.navigate(['/maid/edit-maid'], {
+      queryParams: {
+        id_worktime : id
+      }
+    });
+  }
+
   Back(){
     this._router.navigate(['/maid/maid-list']);
   }

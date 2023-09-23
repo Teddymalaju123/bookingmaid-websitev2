@@ -11,19 +11,6 @@
     cursor: pointer;
 }
 
-
-.background-button-add{
-    background-color: white; 
-    color: black; 
-    border: 2px solid #4CAF50;
-}
-
-.background-button-add:hover {
-    background-color: #4CAF50;
-    color: white;
-}
-
-
 .large-form-item {
     width: 100%; 
   }
@@ -33,10 +20,10 @@
     height: 50px; 
   }
 
-  
   form {
     max-width: 600px;
   }
+  
   .custom-button {
     background-color: white; 
     color: black; 

@@ -30,15 +30,11 @@ export class MaidListComponent implements OnInit {
     router: Router,
     service: MaidService,
     _changeDetectorRef: ChangeDetectorRef,
-    private modalService: NzModalService // เปลี่ยน NzModalRef เป็น NzModalService
+    private modalService: NzModalService 
   ) {
     this.router = router;
     this.service = service;
     this._changeDetectorRef = _changeDetectorRef;
-    // this.validateForm = this.fb.group({
-    //   day: [null, Validators.required], // ตรวจสอบว่า 'day' ตรงกับชื่อ FormControl ในเทมเพลต
-    //   id_timeworktype: [null],
-    // });
 
     registerLocaleData(en, 'en');
   }
@@ -82,7 +78,6 @@ export class MaidListComponent implements OnInit {
     // this.modalRef.destroy(); ไม่ต้องเรียก destroy() ในกรณีใช้ NzModalService
   }
 
-
   ngOnInit(): void {
     this.getMaid();
     this.validateForm = this.fb.group({
@@ -90,8 +85,6 @@ export class MaidListComponent implements OnInit {
       id_timeworktype: [null], // กำหนดให้ใช้ id_timeworktype แทน roomsize
     });
   }
-
-
 
   getMaid(): void {
     this.service.getMaid().subscribe({
@@ -112,4 +105,5 @@ export class MaidListComponent implements OnInit {
   detail() {
     this.router.navigate(['/maid/maid-detail']);
   }
+
 }
