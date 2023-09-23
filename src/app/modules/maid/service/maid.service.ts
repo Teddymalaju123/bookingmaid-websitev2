@@ -16,8 +16,8 @@ export class MaidService {
     return this._http.post(environment.api_url + '/user/save', req);
   }
 
-  saveTime(timeData: any): Observable<any> {
-    return this._http.post(environment.api_url + '/maidwork/savework', timeData);
+  saveTime(req: any): Observable<any> {
+    return this._http.post(environment.api_url + '/maidwork/savework', req);
   }
 
   deleteMaidTime(id_worktime: number): Observable<any> {

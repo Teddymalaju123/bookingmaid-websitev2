@@ -2,11 +2,11 @@ import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { Maid } from '../interface/miad.interface';
 import { MaidService } from '../service/maid.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'; 
+import { FormGroup, FormBuilder } from '@angular/forms'; 
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { Work } from '../interface/work.interface';
-import { HttpParams } from '@angular/common/http';
+import { NzModalRef } from 'ng-zorro-antd/modal/public-api';
+
 
 @Component({
   selector: 'app-maid-list',
@@ -18,27 +18,28 @@ export class MaidListComponent implements OnInit {
   [x: string]: any;
   private router: Router;
   private service: MaidService;
+  private modal: NzModalRef
   private _changeDetectorRef = inject(ChangeDetectorRef);
   validateForm!: FormGroup;
-  editForm: FormGroup;
   isVisible = false;
   isOkLoading = false;
   dataMaids: Maid[] = [];
-  rangePickerTime: Work[] = [];
+  date = null;
 
 
   constructor(
     private fb: FormBuilder, 
     router: Router,
     service: MaidService,
-    _changeDetectorRef: ChangeDetectorRef
+    _changeDetectorRef: ChangeDetectorRef,
+     modal: NzModalRef
+    
   ) {
     this.router = router;
     this.service = service;
-    this.editForm = this.fb.group({
-      startTime: [null, Validators.required],
-      endTime: [null, Validators.required],
-    });
+    this.modal = modal;
+  
+
 
     registerLocaleData(en, 'en');
 
@@ -51,66 +52,65 @@ export class MaidListComponent implements OnInit {
     this.isVisible = true;
   }
 
-  selectedWorkId: number | null = null;
-
-
   handleOk(): void {
-    const { rangePickerTime } = this.validateForm.value;
-
-    if (!Array.isArray(rangePickerTime) || rangePickerTime.length !== 2) {
-      console.error('Please select a valid time range.');
-      return;
-    }
-
-    if (this.selectedUserId === null) {
-      console.error('Please select a user.');
-      return;
-    }
-
-    const startTime: Date = rangePickerTime[0];
-    const endTime: Date = rangePickerTime[1];
-    const id_user: number = this.selectedUserId;
-
-    const timeData: Work = {
-      id_worktime: 0,
-      status: 'เริ่มงาน',
-      workingtime: startTime,
-      endworking: endTime,
-      id_user: id_user,
-    };
-
-    this.service.saveTime(timeData).subscribe({
-      next: (_response: any) => {
-        this.isVisible = false;
-      },
-      error: (err) => {
-        console.log('error', err);
-      },
-    });
+    this.saveTime();
   }
 
   handleCancel(): void {
     this.isVisible = false;
+    this.modal.destroy(); // ปิด Modal อย่างถูกต้อง
+  }
+
+  saveTime(): void {
+    const { id_timeworktype } = this.validateForm.value;
+    const id_user: number | null = this.selectedUserId;
+
+    if (id_user === null) {
+      console.error('Please select a user.');
+      return;
+    }
+
+    const formData = {
+      id_user: id_user,
+      id_timeworktype: id_timeworktype,
+      date: this.date,
+    };
+
+    this.service.saveTime(formData).subscribe({
+      next: (_response: any) => {
+        this.isVisible = false;
+        // ปิด Modal อย่างถูกต้อง (ถ้าคุณใช้ modal)
+      },
+      error: (err) => {
+        console.error('Error', err);
+        // จัดการข้อผิดพลาดเมื่อเกิดข้อผิดพลาดในการบันทึก
+      },
+    });
   }
 
   ngOnInit(): void {
     this.getMaid();
     this.validateForm = this.fb.group({
-      rangePickerTime: [[]],
+      id_timeworktype: [null], // กำหนดให้ใช้ id_timeworktype แทน roomsize
     });
+  }
+
+  onChange(result: Date): void {
+    console.log('onChange: ', result);
   }
 
   getMaid(): void {
     this.service.getMaid().subscribe({
       next: (response: any) => {
         const data: any = response;
-        this.dataMaids = data
-        this._changeDetectorRef.detectChanges()
+        this.dataMaids = data;
       },
       error: (err) => {
-      }
+        console.error('Error', err);
+      },
     });
   }
+
   add() {
     this.router.navigate(['/maid/maid-add']);
   }
@@ -118,12 +118,11 @@ export class MaidListComponent implements OnInit {
   detail(id: any) {
     this.router.navigate(['/maid/maid-detail'], {
       queryParams: {
-        id_user: id
-      }
+        id_user: id,
+      },
     });
   }
 }
-
 
 
 

@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of dataMaid.data">
+        <tr *ngFor="let data of dataMaids">
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.phone }}</td>
@@ -33,19 +33,31 @@
           </td>
         </tr>
       </tbody>
-      <nz-modal [(nzVisible)]="isVisible" nzTitle="Maid Work" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
-        [nzOkLoading]="isOkLoading" [nzWidth]="'45%'">
-        <div *nzModalContent>
-          <form nz-form [formGroup]="validateForm" (ngSubmit)="handleOk()">
-            <nz-form-item class="large-form-item">
-              <nz-form-label [nzSm]="4" [nzXs]="30" nzRequired>ลงตารางเวลา</nz-form-label>
-              <nz-form-control [nzSm]="16" [nzXs]="24">
-                <nz-range-picker nzShowTime formControlName="rangePickerTime"></nz-range-picker>
-              </nz-form-control>
-            </nz-form-item>
-          </form>
-        </div>
-      </nz-modal>
     </nz-table>
   </div>
 </div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Maid Work" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading" [nzWidth]="'50%'">
+  <div *nzModalContent>
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="handleOk()">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="dayselector" nzRequired>
+          <span>วันที่</span>
+        </nz-form-label>
+        <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+        <br />
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="timeselector" nzRequired>
+          <span>ช่วงเวลาการทำงาน</span>
+        </nz-form-label>
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a time" formControlName="id_timeworktype"
+          class="custom-margin" style="width: 255px">
+          <nz-option nzLabel="ช่วงเช้า" nzValue="1"></nz-option>
+          <nz-option nzLabel="ช่วงบ่าย" nzValue="2"></nz-option>
+        </nz-select>
+      </nz-form-item>
+    </form>
+  </div>
+</nz-modal>

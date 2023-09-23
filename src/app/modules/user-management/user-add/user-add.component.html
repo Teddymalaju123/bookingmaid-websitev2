@@ -1,64 +1,81 @@
-<nz-card nzTitle="Maid" class="card-title">
-    <form nz-form [formGroup]="validateForm" class="form-nz">
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">ชื่อผู้ใช้</nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid username!">
-                <input nz-input formControlName="username" id="username" />
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>รหัสผ่าน</nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
-                <input nz-input type="password" id="password" formControlName="password" />
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="fname" nzRequired>
-                <span>ชื่อจริง</span>
-            </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your firstname!">
-                <input nz-input id="fname" formControlName="fname" />
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lname" nzRequired>
-                <span>นามสกุล</span>
-            </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your lastname!">
-                <input nz-input id="lname" formControlName="lname" />
-            </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>
-                <span>เบอร์โทรศัพท์</span>
-            </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your phone!">
-                <input nz-input id="phone" formControlName="phone" />
-            </nz-form-control>
-        </nz-form-item>
-        <nz-tree-select style="width: 250px" [nzNodes]="nodes" nzShowSearch nzPlaceHolder="Please select"
-            nzVirtualHeight="300px" nzHideUnMatched="true" formControlName="roomnumber"></nz-tree-select>
-        <nz-form-item nz-row class="register-area">
-        </nz-form-item>
-        <nz-form-item>
-            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
-                <span>ขนาดห้อง</span>
-            </nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your roomsize!">
-                <input nz-input id="roomsize" formControlName="roomsize" />
-            </nz-form-control>
-        </nz-form-item>
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
-            class="custom-margin">
-            <nz-option nzLabel="resident" nzValue=2></nz-option>
-            <nz-option nzLabel="maid" nzValue=3></nz-option>
-        </nz-select>
-        <nz-form-item nz-row class="register-area">
-        </nz-form-item>
-        <nz-form-item nz-row class="register-area">
-            <nz-form-control [nzSpan]="14" [nzOffset]="6">
-                <button nz-button nzType="primary" (click)="submitForm()">สมัคร</button>
-            </nz-form-control>
-        </nz-form-item>
-    </form>
+<nz-card nzTitle="Create User" class="card-title">
+    <div class="row">
+        <div class="col-md-9 col-md-push-3">
+            <form nz-form [formGroup]="validateForm" class="form-nz">
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">ชื่อผู้ใช้</nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="The input is not valid username!">
+                        <input nz-input formControlName="username" id="username" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>รหัสผ่าน</nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your password!">
+                        <input nz-input type="password" id="password" formControlName="password" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="fname" nzRequired>
+                        <span>ชื่อจริง</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your firstname!">
+                        <input nz-input id="fname" formControlName="fname" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lname" nzRequired>
+                        <span>นามสกุล</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your lastname!">
+                        <input nz-input id="lname" formControlName="lname" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>
+                        <span>เบอร์โทรศัพท์</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your phone!">
+                        <input nz-input id="phone" formControlName="phone" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
+                    <span>หมายเลขห้อง</span>
+                </nz-form-label>
+                <nz-tree-select style="width: 255px" [nzNodes]="nodes" nzShowSearch nzPlaceHolder="Please select"
+                    nzVirtualHeight="300px" nzHideUnMatched="true" formControlName="roomnumber"></nz-tree-select>
+                <nz-form-item nz-row class="register-area">
+                </nz-form-item>
+            </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
+                        <span>ขนาดห้อง</span>
+                    </nz-form-label>
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a roomsize" formControlName="roomsize"
+                    class="custom-margin" style="width: 255px">
+                    <nz-option nzLabel="26.5 - 29.5 sq m" nzValue="26.5 -29.5 sq m"></nz-option>
+                    <nz-option nzLabel="34.5 sq m" nzValue="34.5 sq m"></nz-option>
+                    <nz-option nzLabel="49.25 - 50.25 sq m" nzValue="49.25 - 50.25 sq m"></nz-option>
+                </nz-select>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
+                        <span>ลูกบ้าน</span>
+                    </nz-form-label>
+                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
+                    class="custom-margin" style="width: 255px">
+                    <nz-option nzLabel="resident" nzValue=2></nz-option>
+                </nz-select>
+            </nz-form-item>
+                <nz-form-item nz-row class="register-area">
+                </nz-form-item>
+                <nz-form-item nz-row class="register-area">
+                    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                        <button nz-button nzType="primary" (click)="submitForm()">สมัคร</button>
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+        </div>
+        <div class="col-md-3 col-md-pull-9"></div>
+    </div>
 </nz-card>

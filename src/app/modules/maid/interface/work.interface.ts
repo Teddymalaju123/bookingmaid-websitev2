@@ -1,9 +1,9 @@
 
 export interface Work {
-    id_worktime: number
-    status: string
-    workingtime : Date
-    endworking: Date
-    id_user : number
+  id_worktime: number;
+  status: string;
+  day : Date;
+  id_timeworktype : number;
+  id_user : number;
   }
   
