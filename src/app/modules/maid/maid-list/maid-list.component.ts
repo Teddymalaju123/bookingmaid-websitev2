@@ -1,48 +1,46 @@
-import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Maid } from '../interface/miad.interface';
 import { MaidService } from '../service/maid.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms'; 
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { NzModalRef } from 'ng-zorro-antd/modal/public-api';
-
+import { NzModalService } from 'ng-zorro-antd/modal'; // ใช้ NzModalService แทน NzModalRef
 
 @Component({
   selector: 'app-maid-list',
   templateUrl: './maid-list.component.html',
   styleUrls: ['./maid-list.component.scss']
 })
-
 export class MaidListComponent implements OnInit {
-  [x: string]: any;
+  // ไม่ต้องระบุ [x: string]: any; ใน class นี้
+
   private router: Router;
   private service: MaidService;
-  private modal: NzModalRef
-  private _changeDetectorRef = inject(ChangeDetectorRef);
+  private _changeDetectorRef: ChangeDetectorRef;
+
   validateForm!: FormGroup;
   isVisible = false;
   isOkLoading = false;
   dataMaids: Maid[] = [];
-  date = null;
 
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     router: Router,
     service: MaidService,
     _changeDetectorRef: ChangeDetectorRef,
-     modal: NzModalRef
-    
+    private modalService: NzModalService // เปลี่ยน NzModalRef เป็น NzModalService
   ) {
     this.router = router;
     this.service = service;
-    this.modal = modal;
-  
-
+    this._changeDetectorRef = _changeDetectorRef;
+    // this.validateForm = this.fb.group({
+    //   day: [null, Validators.required], // ตรวจสอบว่า 'day' ตรงกับชื่อ FormControl ในเทมเพลต
+    //   id_timeworktype: [null],
+    // });
 
     registerLocaleData(en, 'en');
-
   }
 
   selectedUserId: number | null = null;
@@ -53,16 +51,7 @@ export class MaidListComponent implements OnInit {
   }
 
   handleOk(): void {
-    this.saveTime();
-  }
-
-  handleCancel(): void {
-    this.isVisible = false;
-    this.modal.destroy(); // ปิด Modal อย่างถูกต้อง
-  }
-
-  saveTime(): void {
-    const { id_timeworktype } = this.validateForm.value;
+    const { id_timeworktype, day } = this.validateForm.value;
     const id_user: number | null = this.selectedUserId;
 
     if (id_user === null) {
@@ -73,7 +62,7 @@ export class MaidListComponent implements OnInit {
     const formData = {
       id_user: id_user,
       id_timeworktype: id_timeworktype,
-      date: this.date,
+      day: day,
     };
 
     this.service.saveTime(formData).subscribe({
@@ -88,16 +77,21 @@ export class MaidListComponent implements OnInit {
     });
   }
 
+  handleCancel(): void {
+    this.isVisible = false;
+    // this.modalRef.destroy(); ไม่ต้องเรียก destroy() ในกรณีใช้ NzModalService
+  }
+
+
   ngOnInit(): void {
     this.getMaid();
     this.validateForm = this.fb.group({
+      day: [null, Validators.required],
       id_timeworktype: [null], // กำหนดให้ใช้ id_timeworktype แทน roomsize
     });
   }
 
-  onChange(result: Date): void {
-    console.log('onChange: ', result);
-  }
+
 
   getMaid(): void {
     this.service.getMaid().subscribe({
@@ -115,16 +109,7 @@ export class MaidListComponent implements OnInit {
     this.router.navigate(['/maid/maid-add']);
   }
 
-  detail(id: any) {
-    this.router.navigate(['/maid/maid-detail'], {
-      queryParams: {
-        id_user: id,
-      },
-    });
+  detail() {
+    this.router.navigate(['/maid/maid-detail']);
   }
 }
-
-
-
-
-

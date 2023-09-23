@@ -16,8 +16,8 @@ export class MaidService {
     return this._http.post(environment.api_url + '/user/save', req);
   }
 
-  saveTime(req: any): Observable<any> {
-    return this._http.post(environment.api_url + '/maidwork/savework', req);
+  saveTime(formData: any): Observable<any> {
+    return this._http.post(environment.api_url + '/maidwork/savework', formData);
   }
 
   deleteMaidTime(id_worktime: number): Observable<any> {
@@ -25,8 +25,8 @@ export class MaidService {
     return this._http.delete(url);
   }
 
-  getMaidById(id: any) {
-    return this._http.get(environment.api_url + '/maidwork/getwork/' + id);
+  getMaidById() {
+    return this._http.get(environment.api_url + '/maidwork/getwork');
   }
 }
 

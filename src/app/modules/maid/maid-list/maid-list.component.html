@@ -1,7 +1,17 @@
 <div class="card">
-  <div class="card-header" style="display: flex; justify-content: space-between;">
-    <h2>Maid</h2>
-    <button type="button" (click)="add()" class="btn btn-outline-success">+ เพิ่มแม่บ้าน</button>
+  <div class="card-header">
+    <div class="row">
+      <div class="col-xl-9">
+        <h2>Maid</h2>
+      </div>
+      <div class="col-sm-3" style="justify-content: right;"><button type="button" (click)="add()" class="btn btn-outline-success">+
+          เพิ่มแม่บ้าน
+        </button>
+        <button nz-button nzType="primary" (click)="detail()" class="custom-button" style="margin-left: 40px;">
+          ดูรายละเอียดแม่บ้าน
+        </button>
+      </div>
+    </div>
   </div>
   <div class="card-body">
     <nz-table #dataMaid [nzData]="dataMaids">
@@ -10,6 +20,8 @@
           <th>ชื่อ</th>
           <th>นามสกุล</th>
           <th>เบอร์โทร</th>
+          <th>อายุ</th>
+          <th>ที่อยู่</th>
           <th>เรทติ้ง</th>
           <th></th>
           <th></th>
@@ -20,6 +32,8 @@
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.phone }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
           <td>{{ data.maid_rating }}</td>
           <td>
             <button nz-button nzType="primary" (click)="showModal(data.id_user)" class="custom-button">
@@ -27,9 +41,6 @@
             </button>
           </td>
           <td>
-            <button nz-button nzType="primary" (click)="detail(data.id_user)" class="custom-button">
-              ดูรายละเอียดแม่บ้าน
-            </button>
           </td>
         </tr>
       </tbody>
@@ -45,7 +56,7 @@
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="dayselector" nzRequired>
           <span>วันที่</span>
         </nz-form-label>
-        <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+        <nz-date-picker formControlName="day"></nz-date-picker>
         <br />
       </nz-form-item>
       <nz-form-item>

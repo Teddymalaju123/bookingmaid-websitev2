@@ -7,17 +7,21 @@
         <nz-table #dataItem [nzData]="data">
             <thead>
                 <tr>
-                    <th>เวลาเข้างาน</th>
-                    <th>เวลาออกงาน</th>
-                    <th>สถานะ</th>
+                    <th>วัน</th>
+                    <th>เวลาเริ่มงาน</th>
+                    <th>เวลาเสร็จงาน</th>
+                    <th>ชื่อ</th>
+                    <th>นามสกุล</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let data of dataItem.data">
-                    <td>{{ this.convertToThaiDateTime(data.endworking )}}</td>
-                    <td>{{ this.convertToThaiDateTime(data.workingtime) }}</td>
-                    <td>{{ data.status }}</td>
+                    <td>{{ this.convertToThaiDayOfWeek(data.day) }}</td>
+                    <td>{{ data.start_work }}</td>
+                    <td>{{ data.end_work }}</td>
+                    <td>{{ data.fname }}</td>
+                    <td>{{ data.lname }}</td>
                     <td>
                         <button nz-button nzType="primary" (click)="deleteMaidTime(data.id_worktime)" class="custom-button">ลบตารางการทำงานแม่บ้าน</button>
                     </td>
