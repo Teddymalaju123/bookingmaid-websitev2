@@ -4,6 +4,7 @@ import { MaidListComponent } from './maid-list/maid-list.component';
 import { MaidAddComponent } from './maid-add/maid-add.component';
 import { MaidDetailComponent } from './maid-detail/maid-detail.component';
 import { EditMaidComponent } from './edit-maid/edit-maid.component';
+import { MaidModifyComponent } from './maid-modify/maid-modify.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'maid-add', component: MaidAddComponent },
   { path: 'maid-detail', component: MaidDetailComponent },
   { path: 'edit-maid', component: EditMaidComponent },
+  { path: 'maid-modify', component: MaidModifyComponent },
 ];
 
 @NgModule({

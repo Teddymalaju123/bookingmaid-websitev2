@@ -16,8 +16,12 @@ export class ResidentService {
   }
 
   deleteUser(id_user: number): Observable<any> {
-    const url = `${environment.api_url}/user/delete/${id_user}`;
-    return this._http.delete(url);
+    return this._http.delete(environment.api_url + '/user/delete/' + id_user);
   }
+
+  editUser(selectedUserid: number,formData: any): Observable<any> {
+    return this._http.post(environment.api_url + '/user/edit/'  + selectedUserid,formData);
+  }
+
   
 }

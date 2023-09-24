@@ -106,4 +106,12 @@ export class MaidListComponent implements OnInit {
     this.router.navigate(['/maid/maid-detail']);
   }
 
+  goedit(id: any){
+    this.router.navigate(['/maid/maid-modify'], {
+      queryParams: {
+        id_user : id
+      }
+    });
+  }
+
 }

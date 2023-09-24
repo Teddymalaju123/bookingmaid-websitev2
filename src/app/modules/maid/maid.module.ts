@@ -18,6 +18,7 @@ import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { MaidDetailComponent } from './maid-detail/maid-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditMaidComponent } from './edit-maid/edit-maid.component';
+import { MaidModifyComponent } from './maid-modify/maid-modify.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { EditMaidComponent } from './edit-maid/edit-maid.component';
     MaidAddComponent,
     MaidDetailComponent,
     EditMaidComponent,
+    MaidModifyComponent,
   ],
   imports: [
     FormsModule,

@@ -24,11 +24,6 @@ export class MaidService {
     return this._http.post(environment.api_url + '/maidwork/editmaid/'+ id_worktime,formData);
   }
 
-  // deleteMaidTime(id_worktime: number): Observable<any> {
-  //   const url = `${environment.api_url}/maidwork/deletemaid/${id_worktime}`;
-  //   return this._http.delete(url);
-  // }
-
   deleteMaidTime(id_worktime: number): Observable<any> {
     return this._http.delete(environment.api_url + '/maidwork/deletemaid/' + id_worktime);
   }

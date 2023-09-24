@@ -36,6 +36,14 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['/user/user-add']);
   }
 
+  goedit(id: any){
+    this.router.navigate(['/user/user-edit'], {
+      queryParams: {
+        id_user : id
+      }
+    });
+  }
+
   deleteUser(id_user: number): void {
     this.service.deleteUser(id_user).subscribe(
       (response) => {

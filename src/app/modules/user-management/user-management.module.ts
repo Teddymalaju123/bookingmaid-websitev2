@@ -13,16 +13,19 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
   { path: 'user-add', component: UserAddComponent },
+  { path: 'user-edit', component: UserEditComponent },
 ];
 
 @NgModule({
   declarations: [
     UserListComponent,
-    UserAddComponent
+    UserAddComponent,
+    UserEditComponent
   ],
   imports: [
     RouterModule.forChild(routes),

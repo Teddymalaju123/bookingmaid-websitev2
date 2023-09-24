@@ -8,16 +8,19 @@
             <thead>
                 <tr>
                     <th>วัน</th>
+                    <th>วันที่</th>
                     <th>เวลาเริ่มงาน</th>
                     <th>เวลาเสร็จงาน</th>
                     <th>ชื่อ</th>
                     <th>นามสกุล</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let data of dataItem.data">
                     <td>{{ this.convertToThaiDayOfWeek(data.day) }}</td>
+                    <td>{{ this.convertToThaiDate(data.day) }}</td>
                     <td>{{ data.start_work }}</td>
                     <td>{{ data.end_work }}</td>
                     <td>{{ data.fname }}</td>

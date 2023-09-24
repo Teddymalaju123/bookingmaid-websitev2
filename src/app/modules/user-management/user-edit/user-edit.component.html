@@ -1,0 +1,68 @@
+<nz-card nzTitle="Edit Resident" class="card-title">
+    <div class="row">
+        <div class="col-md-9 col-md-push-3">
+            <form nz-form [formGroup]="validateForm" class="form-nz">
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">ชื่อผู้ใช้</nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="The input is not valid username!">
+                        <input nz-input formControlName="username" id="username" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>รหัสผ่าน</nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your password!">
+                        <input nz-input type="password" id="password" formControlName="password" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="fname" nzRequired>
+                        <span>ชื่อจริง</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your firstname!">
+                        <input nz-input id="fname" formControlName="fname" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lname" nzRequired>
+                        <span>นามสกุล</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your lastname!">
+                        <input nz-input id="lname" formControlName="lname" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>
+                        <span>เบอร์โทรศัพท์</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your phone!">
+                        <input nz-input id="phone" formControlName="phone" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="age" nzRequired>
+                        <span>อายุ</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your age!">
+                        <input nz-input id="age" formControlName="age" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address" nzRequired>
+                        <span>ที่อยู่</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your address!">
+                        <input nz-input id="address" formControlName="address" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item nz-row class="register-area">
+                </nz-form-item>
+                <nz-form-item nz-row class="register-area">
+                    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                        <button nz-button nzType="primary" (click)="editUser()" class="custom-primary-button">แก้ไขข้อมูลลูกบ้าน</button>
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+        </div>
+        <div class="col-md-3 col-md-pull-9"></div>
+    </div>
+</nz-card>
