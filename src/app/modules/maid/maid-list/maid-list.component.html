@@ -19,7 +19,8 @@
         <tr>
           <th>ชื่อ</th>
           <th>นามสกุล</th>
-          <th>เบอร์โทร</th>
+          <th>ชื่อผู้ใช้</th>
+          <th>เบอร์โทรติดต่อ</th>
           <th>อายุ</th>
           <th>ที่อยู่</th>
           <th>เรทติ้ง</th>
@@ -31,6 +32,7 @@
         <tr *ngFor="let data of dataMaids">
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
+          <td>{{ data.username }}</td>
           <td>{{ data.phone }}</td>
           <td>{{ data.age }}</td>
           <td>{{ data.address }}</td>

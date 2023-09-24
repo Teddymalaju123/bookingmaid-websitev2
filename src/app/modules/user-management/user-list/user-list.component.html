@@ -12,7 +12,9 @@
           <th>ชื่อ</th>
           <th>นามสกุล</th>
           <th>เบอร์โทร</th>
+          <th>อายุ</th>
           <th>ขนาดห้อง</th>
+          <th>ที่อยู่</th>
           <th></th>
         </tr>
       </thead>
@@ -22,22 +24,9 @@
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.phone }}</td>
+          <td>{{ data.age }}</td>
           <td>{{ data.roomsize }}</td>
-          <td>
-            <button nz-button [nzType]="'primary'" (click)="showModal(data)" class="custom-primary-button">
-              ดูรายละเอียด
-            </button>
-            <nz-modal [(nzVisible)]="isVisible" nzTitle="รายละเอียดข้อมูล" (nzOnCancel)="handleCancel()"
-              (nzOnOk)="handleOk()" class="custom-modal">
-              <ng-container *nzModalContent>
-                <p>หมายเลขห้อง: {{ dataDetails?.roomnumber }}</p>
-                <p>ชื่อ: {{ dataDetails?.fname }}</p>
-                <p>นามสกุล: {{ dataDetails?.lname }}</p>
-                <p>เบอร์โทร: {{ dataDetails?.phone }}</p>
-                <p>ขนาดห้อง: {{ dataDetails?.roomsize }}</p>
-              </ng-container>
-            </nz-modal>
-          </td>
+          <td>{{ data.address }}</td>
           <td>
             <button nz-button nzType="primary" (click)="deleteUser(data.id_user)"
               class="custom-primary-button">ลบลูกบ้าน</button>

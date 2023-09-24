@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MaidService } from '../service/maid.service';
-import { Work } from '../interface/work.interface';
 import { Maid } from '../interface/miad.interface';
 
 @Component({
@@ -13,18 +12,11 @@ import { Maid } from '../interface/miad.interface';
 export class EditMaidComponent implements OnInit{
   [x: string]: any;
   validateForm!: FormGroup;
-  private router: Router = new Router;
-  private service: MaidService = new MaidService;
-  private fb: FormBuilder = new FormBuilder;
-
-  constructor(
-    private _router: Router,
-    private _activatedRoute: ActivatedRoute, // เพิ่ม ActivatedRoute ใน constructor
-    // ... อื่น ๆ
-  ) {
-    this.router = this.router;
-    this.service = this.service;
-  }
+  private router = inject(Router);
+  private service = inject(MaidService);
+  private fb = inject(FormBuilder);
+  private _changeDetectorRef = inject(ChangeDetectorRef);
+  private _activatedRoute = inject(ActivatedRoute);
 
   data!: Maid;
   
@@ -33,7 +25,7 @@ export class EditMaidComponent implements OnInit{
       const idWorktime = params['id_worktime'];
       if (idWorktime) {
         this.selectedWorkId = idWorktime;
-        
+        console.log(this.selectedWorkId);
       }
     });
     this.validateForm = this.fb.group({
@@ -44,24 +36,15 @@ export class EditMaidComponent implements OnInit{
 
 
   selectedWorkId: number | null = null;
-  editmaid(idWorktime: number) { // เพิ่มพารามิเตอร์ idWorktime ที่รับค่า id_worktime
-    this.selectedWorkId = idWorktime;
+  editmaid() { 
     const { id_timeworktype, day } = this.validateForm.value;
-    const id_worktime: number | null = this.selectedWorkId;
-  
-    if (id_worktime === null) {
-      console.error('Please select a user.');
-      return;
-    }
-  
     const formData = {
       id_timeworktype: id_timeworktype,
       day: day,
-      
     };
-  
-    this.service.editMaidTime(id_worktime, formData).subscribe({
+    this.service.editMaidTime(this.selectedWorkId!, formData).subscribe({
       next: (_response: any) => {
+        this._changeDetectorRef?.detectChanges();
         this.router.navigate(['/maid/maid-detail']);
       },
       error: (err) => {
@@ -69,7 +52,5 @@ export class EditMaidComponent implements OnInit{
       },
     });
   }
-  
-
 }
 

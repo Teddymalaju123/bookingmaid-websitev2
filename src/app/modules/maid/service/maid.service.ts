@@ -21,7 +21,7 @@ export class MaidService {
   }
 
   editMaidTime(id_worktime: number,formData: any): Observable<any>{
-    return this._http.post(environment.api_url + '/user/save'+ id_worktime,formData);
+    return this._http.post(environment.api_url + '/maidwork/editmaid/'+ id_worktime,formData);
   }
 
   // deleteMaidTime(id_worktime: number): Observable<any> {

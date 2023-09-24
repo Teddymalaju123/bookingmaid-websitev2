@@ -39,6 +39,30 @@
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="id_card" nzRequired>
+                        <span>เลขบัตรประชาชน</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your id_card!">
+                        <input nz-input id="id_card" formControlName="id_card" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="age" nzRequired>
+                        <span>อายุ</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your age!">
+                        <input nz-input id="age" formControlName="age" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address" nzRequired>
+                        <span>ที่อยู่</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your address!">
+                        <input nz-input id="address" formControlName="address" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
                 <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
                     <span>หมายเลขห้อง</span>
                 </nz-form-label>

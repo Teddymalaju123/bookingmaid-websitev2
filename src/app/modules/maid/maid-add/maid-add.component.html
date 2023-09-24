@@ -39,6 +39,14 @@
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="id_card" nzRequired>
+                        <span>เลขบัตรประชาชน</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your id_card!">
+                        <input nz-input id="id_card" formControlName="id_card" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="age" nzRequired>
                         <span>อายุ</span>
                     </nz-form-label>
@@ -56,7 +64,7 @@
                 </nz-form-item>
                 <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
-                        <span>ลูกบ้าน</span>
+                        <span>แม่บ้าน</span>
                     </nz-form-label>
                 <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
                     class="custom-margin" style="width: 255px">

@@ -36,23 +36,6 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['/user/user-add']);
   }
 
-  dataDetails: any;
-
-  showModal(data: any): void {
-    this.dataDetails = data; 
-    this.isVisible = true;
-  }
-
-  handleOk(): void {
-    console.log('Button ok clicked!');
-    this.isVisible = false;
-  }
-  
-  handleCancel(): void {
-    console.log('Button cancel clicked!');
-    this.isVisible = false;
-  }
-
   deleteUser(id_user: number): void {
     this.service.deleteUser(id_user).subscribe(
       (response) => {

@@ -28,6 +28,7 @@ export class MaidAddComponent {
       roomnumber: new FormControl<string | null>(null),
       roomsize: new FormControl<string | null>(null),
       maid_rating: new FormControl<number | null>(null),
+      id_card: new FormControl<number | null>(null, Validators.required),
       age: new FormControl<number | null>(null),
       address: new FormControl<string | null>(null),
       type_id: new FormControl<number | null>(null, Validators.required),
