@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MaidService } from '../service/maid.service';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 
 @Component({
@@ -16,6 +15,7 @@ export class MaidDetailComponent implements OnInit {
   private _changeDetectorRef = inject(ChangeDetectorRef);
   data: any[] = []
   id_user: any;
+  mode = 'date';
   ngOnInit(): void {
     this._route.queryParams.subscribe(_response => {
       this.getWork()

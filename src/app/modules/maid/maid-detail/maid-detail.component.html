@@ -2,6 +2,15 @@
     <div class="card-header" style="display: flex;
       justify-content: space-between;;">
         <h2>ตารางงานแม่บ้าน</h2>
+        <nz-space>
+            <nz-select *nzSpaceItem [(ngModel)]="mode">
+              <nz-option nzValue="date" nzLabel="Date"></nz-option>
+              <nz-option nzValue="week" nzLabel="Week"></nz-option>
+              <nz-option nzValue="month" nzLabel="Month"></nz-option>
+              <nz-option nzValue="year" nzLabel="Year"></nz-option>
+            </nz-select>
+            <nz-date-picker *nzSpaceItem [nzMode]="mode"></nz-date-picker>
+          </nz-space>
     </div>
     <div class="card-body">
         <nz-table #dataItem [nzData]="data">

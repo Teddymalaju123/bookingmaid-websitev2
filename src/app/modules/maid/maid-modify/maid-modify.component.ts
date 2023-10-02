@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { ResidentService } from '../../user-management/service/resident.service';
 import { Maid } from '../interface/miad.interface';
+import { MaidService } from '../service/maid.service';
 
 @Component({
   selector: 'app-maid-modify',
@@ -14,6 +15,7 @@ export class MaidModifyComponent implements OnInit{
   validateForm!: FormGroup;
   private router = inject(Router);
   private service = inject(ResidentService);
+  private service_maid = inject(MaidService);
   private fb = inject(FormBuilder);
   private _changeDetectorRef = inject(ChangeDetectorRef);
   private _activatedRoute = inject(ActivatedRoute);
@@ -28,6 +30,7 @@ export class MaidModifyComponent implements OnInit{
       if (idUser) {
         this.selectedUserid = idUser;
         console.log(this.selectedUserid);
+        this.getMaid();
       }
     });
     this.validateForm = this.fb.group({
@@ -37,13 +40,26 @@ export class MaidModifyComponent implements OnInit{
       fname: new FormControl<string | null>(null),
       lname: new FormControl<string | null>(null),
       phone: new FormControl<string | null>(null),
+      id_card: new FormControl<number | null>(null, Validators.required),
       age: new FormControl<number | null>(null),
       address: new FormControl<string | null>(null),
     });
   }
 
+  getMaid(): void {
+    this.service_maid.getbyIdMaid(this.selectedUserid).subscribe({
+      next: (response: any) => {
+        const data: any = response;
+        this.validateForm.patchValue(data[0]);
+      },
+      error: (err) => {
+        console.error('Error', err);
+      },
+    });
+  }
+
   editUser() { 
-    const { id_user, username, password, fname, lname, phone, age, address} = this.validateForm.value;
+    const { id_user, username, password, fname, lname, phone, id_card, age, address} = this.validateForm.value;
     const formData = {
       id_user: id_user,
       username: username,
@@ -51,6 +67,7 @@ export class MaidModifyComponent implements OnInit{
       fname: fname,
       lname: lname,
       phone: phone,
+      id_card: id_card,
       age: age,
       address: address,
     };
