@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { Maid } from '../../maid/interface/miad.interface';
 import { ResidentService } from '../service/resident.service';
+import { MaidService } from '../../maid/service/maid.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -14,6 +15,7 @@ export class UserEditComponent implements OnInit{
   validateForm!: FormGroup;
   private router = inject(Router);
   private service = inject(ResidentService);
+  private service_maid = inject(MaidService);
   private fb = inject(FormBuilder);
   private _changeDetectorRef = inject(ChangeDetectorRef);
   private _activatedRoute = inject(ActivatedRoute);
@@ -27,6 +29,7 @@ export class UserEditComponent implements OnInit{
       if (idUser) {
         this.selectedUserid = idUser;
         console.log(this.selectedUserid);
+        this.getResident();
       }
     });
     this.validateForm = this.fb.group({
@@ -36,8 +39,21 @@ export class UserEditComponent implements OnInit{
       fname: new FormControl<string | null>(null),
       lname: new FormControl<string | null>(null),
       phone: new FormControl<string | null>(null),
+      id_card: new FormControl<number | null>(null),
       age: new FormControl<number | null>(null),
       address: new FormControl<string | null>(null),
+    });
+  }
+
+  getResident(): void {
+    this.service_maid.getbyIdMaid(this.selectedUserid).subscribe({
+      next: (response: any) => {
+        const data: any = response;
+        this.validateForm.patchValue(data[0]);
+      },
+      error: (err) => {
+        console.error('Error', err);
+      },
     });
   }
 

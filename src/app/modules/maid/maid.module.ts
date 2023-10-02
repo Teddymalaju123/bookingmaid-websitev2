@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditMaidComponent } from './edit-maid/edit-maid.component';
 import { MaidModifyComponent } from './maid-modify/maid-modify.component';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { NzSpaceModule } from 'ng-zorro-antd/space';
     NzTimelineModule,
     NzDatePickerModule,
     NzCalendarModule,
-    NzSpaceModule
+    NzSpaceModule,
+    NzDropDownModule
 
 
   ]
