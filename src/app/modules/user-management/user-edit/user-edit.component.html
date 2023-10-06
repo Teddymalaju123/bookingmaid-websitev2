@@ -62,6 +62,26 @@
                         <input nz-input id="address" formControlName="address" />
                     </nz-form-control>
                 </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
+                        <span>หมายเลขห้อง</span>
+                    </nz-form-label>
+                    <nz-tree-select style="width: 255px" [nzNodes]="nodes" nzShowSearch nzPlaceHolder="Please select"
+                        nzVirtualHeight="300px" nzHideUnMatched="true" formControlName="roomnumber"></nz-tree-select>
+                    <nz-form-item nz-row class="register-area">
+                    </nz-form-item>
+                </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
+                            <span>ขนาดห้อง</span>
+                        </nz-form-label>
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a roomsize" formControlName="roomsize"
+                        class="custom-margin" style="width: 255px">
+                        <nz-option nzLabel="26.5 - 29.5 sq m" nzValue="26.5 -29.5 sq m"></nz-option>
+                        <nz-option nzLabel="34.5 sq m" nzValue="34.5 sq m"></nz-option>
+                        <nz-option nzLabel="49.25 - 50.25 sq m" nzValue="49.25 - 50.25 sq m"></nz-option>
+                    </nz-select>
+                    </nz-form-item>
                 <nz-form-item nz-row class="register-area">
                 </nz-form-item>
                 <nz-form-item nz-row class="register-area">

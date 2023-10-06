@@ -17,14 +17,14 @@ export class MaidDetailComponent implements OnInit {
   data: any[] = []
   id_user: any;
   mode: string = 'date'; // ตัวแปรสำหรับเก็บโหมดที่ผู้ใช้เลือก
-  selectedDate: Date | null = null;
-  filteredData: Maid[] = [];
+  searchValue = '';
+  visible = false;
 
 
   ngOnInit(): void {
     this._route.queryParams.subscribe(_response => {
-      this.getWork()
-      this.filterDataByDate();
+      this.getWork();
+      this.reset();
     });
   }
 
@@ -64,23 +64,14 @@ export class MaidDetailComponent implements OnInit {
     return ` ${date.getDate()} ${thaiMonth} ${thaiYear}`;
   }
   
-  filterDataByDate() {
-    if (this.selectedDate) {
-      const selectedDate = new Date(this.selectedDate);
-  
-      // กรองข้อมูลตามวันที่ที่เลือก
-      this.filteredData = this.data.filter(item => {
-        const itemDate = new Date(item.day);
-        return (
-          itemDate.getFullYear() === selectedDate.getFullYear() &&
-          itemDate.getMonth() === selectedDate.getMonth() &&
-          itemDate.getDate() === selectedDate.getDate()
-        );
-      });
-    } else {
-      // ถ้าไม่มีวันที่ที่เลือกให้แสดงข้อมูลทั้งหมด
-      this.filteredData = this.data;
-    }
+  reset(): void {
+    this.searchValue = '';
+    this.search();
+  }
+
+  search(): void {
+    this.visible = false;
+    this.data = this.data.filter((item: any) => item.name.indexOf(this.searchValue) !== -1);
   }
 
 

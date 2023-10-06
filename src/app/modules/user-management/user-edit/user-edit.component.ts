@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Maid } from '../../maid/interface/miad.interface';
 import { ResidentService } from '../service/resident.service';
 import { MaidService } from '../../maid/service/maid.service';
+import { NzTreeNodeOptions } from 'ng-zorro-antd/tree';
 
 @Component({
   selector: 'app-user-edit',
@@ -19,9 +20,11 @@ export class UserEditComponent implements OnInit{
   private fb = inject(FormBuilder);
   private _changeDetectorRef = inject(ChangeDetectorRef);
   private _activatedRoute = inject(ActivatedRoute);
-
+  nodes: NzTreeNodeOptions[] = [];
   data!: Maid;
   selectedUserid: number | null = null;
+
+  
   
   ngOnInit(): void {
     this._activatedRoute.queryParams.subscribe(params => {
@@ -42,7 +45,49 @@ export class UserEditComponent implements OnInit{
       id_card: new FormControl<number | null>(null),
       age: new FormControl<number | null>(null),
       address: new FormControl<string | null>(null),
+      roomnumber: new FormControl<string | null>(null,Validators.required),
+      roomsize: new FormControl<string | null>(null),
+      maid_rating: new FormControl<number | null>(null),
     });
+    const dig = (startPath = '7', maxStartPath = 35, leafCount = 17, maxSubKeyIndex = 486): NzTreeNodeOptions[] => {
+      const list = [];
+      let subKeyIndex = 1; // ค่าเริ่มต้นของ subKeyIndex
+      
+      for (let i = parseInt(startPath); i <= maxStartPath; i++) {
+        const key = `${i}`;
+        const treeNode: NzTreeNodeOptions = {
+          title: key,
+          key,
+          expanded: true,
+          children: [],
+          isLeaf: false,
+        };
+    
+        for (let j = 0; j < leafCount && subKeyIndex <= maxSubKeyIndex; j++) {
+          const subKey = `860/${subKeyIndex}`;
+          const subTreeNode: NzTreeNodeOptions = {
+            title: subKey,
+            key: subKey,
+            expanded: true,
+            isLeaf: true,
+          };
+    
+          if (treeNode.children) {
+            treeNode.children.push(subTreeNode);
+          } else {
+            treeNode.children = [subTreeNode];
+          }
+    
+          subKeyIndex++; // เพิ่มค่า subKeyIndex ทีละ 1
+        }
+    
+        list.push(treeNode);
+      }
+      return list;
+    };
+    
+    this.nodes = dig();
+  
   }
 
   getResident(): void {

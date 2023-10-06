@@ -21,6 +21,7 @@ import { EditMaidComponent } from './edit-maid/edit-maid.component';
 import { MaidModifyComponent } from './maid-modify/maid-modify.component';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
     NzDatePickerModule,
     NzCalendarModule,
     NzSpaceModule,
-    NzDropDownModule
+    NzDropDownModule,
+    NzIconModule
 
 
   ]

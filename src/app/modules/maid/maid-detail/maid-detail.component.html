@@ -1,53 +1,57 @@
 <div class="card">
-    <div class="card-header" style="display: flex;
+  <div class="card-header" style="display: flex;
       justify-content: space-between;;">
-        <h2>ตารางงานแม่บ้าน</h2>
-        <nz-space>
-            <nz-select *nzSpaceItem [(ngModel)]="mode" (ngModelChange)="filterDataByDate()">
-                <nz-option nzValue="date" nzLabel="Date"></nz-option>
-                <nz-option nzValue="week" nzLabel="Week"></nz-option>
-                <nz-option nzValue="month" nzLabel="Month"></nz-option>
-                <nz-option nzValue="year" nzLabel="Year"></nz-option>
-            </nz-select>
-            <nz-date-picker *nzSpaceItem [nzMode]="mode" [(ngModel)]="selectedDate"
-  (ngModelChange)="filterDataByDate()"></nz-date-picker>
-        </nz-space>
-    </div>
-    <div class="card-body">
-        <nz-table #dataItem [nzData]="data">
-            <thead>
-                <tr>
-                    <th>วัน</th>
-                    <th>วันที่</th>
-                    <th>เวลาเริ่มงาน</th>
-                    <th>เวลาเสร็จงาน</th>
-                    <th>ชื่อ</th>
-                    <th>นามสกุล</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let data of dataItem.data">
-                    <td>{{ this.convertToThaiDayOfWeek(data.day) }}</td>
-                    <td>{{ this.convertToThaiDate(data.day) }}</td>
-                    <td>{{ data.start_work }}</td>
-                    <td>{{ data.end_work }}</td>
-                    <td>{{ data.fname }}</td>
-                    <td>{{ data.lname }}</td>
-                    <td>
-                        <button nz-button nzType="primary" (click)="deleteMaidTime(data.id_worktime)"
-                            class="custom-button">ลบตารางการทำงานแม่บ้าน</button>
-                    </td>
-                    <td>
-                        <button nz-button nzType="primary" (click)="editmaid(data.id_worktime )" class="custom-button"
-                            style="margin-left: 40px;">
-                            แก้ไขข้อมูล
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </nz-table>
-        <button nz-button nzType="primary" (click)="Back()" class="custom-button">Back</button>
-    </div>
+    <h2>ตารางงานแม่บ้าน</h2>
+  </div>
+  <div class="card-body">
+    <nz-table #dataItem [nzData]="data" nzTableLayout="fixed">
+      <thead>
+        <tr>
+          <th>วัน
+          </th>
+          <th>วันที่</th>
+          <th>เวลาเริ่มงาน</th>
+          <th>เวลาเสร็จงาน</th>
+          <th>ชื่อ
+            <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+              <span nz-icon nzType="search"></span>
+            </nz-filter-trigger>
+          </th>
+          <th>นามสกุล</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataItem.data">
+          <td>{{ this.convertToThaiDayOfWeek(data.day) }}</td>
+          <td>{{ this.convertToThaiDate(data.day) }}</td>
+          <td>{{ data.start_work }}</td>
+          <td>{{ data.end_work }}</td>
+          <td>{{ data.fname }}</td>
+          <td>{{ data.lname }}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="deleteMaidTime(data.id_worktime)"
+              class="custom-button">ลบตารางการทำงานแม่บ้าน</button>
+          </td>
+          <td>
+            <button nz-button nzType="primary" (click)="editmaid(data.id_worktime )" class="custom-button"
+              style="margin-left: 40px;">
+              แก้ไขข้อมูล
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <button nz-button nzType="primary" (click)="Back()" class="custom-button">Back</button>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <div class="ant-table-filter-dropdown">
+        <div class="search-box">
+          <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+          <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Search</button>
+          <button nz-button nzSize="small" (click)="reset()">Reset</button>
+        </div>
+      </div>
+    </nz-dropdown-menu>
+  </div>
 </div>
