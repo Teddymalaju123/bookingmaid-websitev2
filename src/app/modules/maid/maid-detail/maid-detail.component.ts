@@ -71,13 +71,14 @@ export class MaidDetailComponent implements OnInit {
 
   search(): void {
     this.visible = false;
-    this.data = this.data.filter((item: any) => item.name.indexOf(this.searchValue) !== -1);
+    this.data = this.data.filter((item: any) => item.fname.indexOf(this.searchValue) !== -1);
   }
 
 
   deleteMaidTime(id_worktime: number): void {
     this.maidService.deleteMaidTime(id_worktime).subscribe(
       () => {
+        this.getWork();
         console.log('ลบข้อมูลสำเร็จ')
       },
       (error) => {
