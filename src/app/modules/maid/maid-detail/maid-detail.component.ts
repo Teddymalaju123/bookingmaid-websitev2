@@ -16,7 +16,7 @@ export class MaidDetailComponent implements OnInit {
   private _changeDetectorRef = inject(ChangeDetectorRef);
   data: any[] = []
   id_user: any;
-  mode: string = 'date'; // ตัวแปรสำหรับเก็บโหมดที่ผู้ใช้เลือก
+  mode: string = 'date'; 
   searchValue = '';
   visible = false;
 

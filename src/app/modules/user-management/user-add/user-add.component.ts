@@ -38,7 +38,7 @@ export class UserAddComponent implements OnInit{
 
     const dig = (startPath = '7', maxStartPath = 35, leafCount = 17, maxSubKeyIndex = 486): NzTreeNodeOptions[] => {
       const list = [];
-      let subKeyIndex = 1; // ค่าเริ่มต้นของ subKeyIndex
+      let subKeyIndex = 1; 
       
       for (let i = parseInt(startPath); i <= maxStartPath; i++) {
         const key = `${i}`;
@@ -65,7 +65,7 @@ export class UserAddComponent implements OnInit{
             treeNode.children = [subTreeNode];
           }
     
-          subKeyIndex++; // เพิ่มค่า subKeyIndex ทีละ 1
+          subKeyIndex++; 
         }
     
         list.push(treeNode);

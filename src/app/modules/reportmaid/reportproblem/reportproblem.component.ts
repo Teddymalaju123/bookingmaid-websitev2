@@ -3,12 +3,7 @@ import { Maid } from '../../maid/interface/miad.interface';
 import { Feedback } from '../interface/reportmaid.interface';
 import { ReportProblemService } from '../service/reportproblem.service';
 
-interface Person {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
+
 
 @Component({
   selector: 'app-reportproblem',

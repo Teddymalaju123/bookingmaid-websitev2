@@ -78,7 +78,7 @@ export class UserEditComponent implements OnInit{
             treeNode.children = [subTreeNode];
           }
     
-          subKeyIndex++; // เพิ่มค่า subKeyIndex ทีละ 1
+          subKeyIndex++; 
         }
     
         list.push(treeNode);

@@ -64,25 +64,22 @@ export class MaidListComponent implements OnInit {
     this.service.saveTime(formData).subscribe({
       next: (_response: any) => {
         this.isVisible = false;
-        // ปิด Modal อย่างถูกต้อง (ถ้าคุณใช้ modal)
       },
       error: (err) => {
         console.error('Error', err);
-        // จัดการข้อผิดพลาดเมื่อเกิดข้อผิดพลาดในการบันทึก
       },
     });
   }
 
   handleCancel(): void {
     this.isVisible = false;
-    // this.modalRef.destroy(); ไม่ต้องเรียก destroy() ในกรณีใช้ NzModalService
   }
 
   ngOnInit(): void {
     this.getMaid();
     this.validateForm = this.fb.group({
       day: [null, Validators.required],
-      id_timeworktype: [null], // กำหนดให้ใช้ id_timeworktype แทน roomsize
+      id_timeworktype: [null], 
     });
   }
 

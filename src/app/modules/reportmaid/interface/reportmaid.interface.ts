@@ -1,10 +1,9 @@
 
-
-
 export interface Feedback {
   feedback_id: number
   feedback_description: string
   id_user: number
+  id_maid: number
   username: string
   fname: string
   lname: string
