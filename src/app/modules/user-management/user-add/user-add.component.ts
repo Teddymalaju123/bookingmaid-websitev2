@@ -24,11 +24,13 @@ export class UserAddComponent implements OnInit{
       id_user: new FormControl<number | null>(null),
       username: new FormControl<string | null>(null, Validators.required),
       password: new FormControl<string | null>(null, Validators.required),
+      profile: new FormControl<Blob | null>(null),
       fname: new FormControl<string | null>(null),
       lname: new FormControl<string | null>(null),
+      nickname: new FormControl<string | null>(null),
       phone: new FormControl<string | null>(null),
       id_card: new FormControl<number | null>(null,Validators.required),
-      age: new FormControl<number | null>(null),
+      birthday: new FormControl<number | null>(null),
       address: new FormControl<string | null>(null),
       roomnumber: new FormControl<string | null>(null,Validators.required),
       roomsize: new FormControl<string | null>(null),
@@ -76,6 +78,17 @@ export class UserAddComponent implements OnInit{
     this.nodes = dig();
   }
 
+  onRoomNumberChange(): void {
+    const roomNumber = this.validateForm.get('roomnumber')?.value;
+  
+    if (roomNumber === '860/238') {
+      this.validateForm.get('roomsize')?.setValue('26.5 - 29.5 sq.m');
+    } else if (roomNumber > '860/408') {
+      this.validateForm.get('roomsize')?.setValue('49.25 - 50.25 sq.m');
+    } else {
+      this.validateForm.get('roomsize')?.setValue('34.5 sq.m');
+    }
+  }
 
   submitForm(): void {
     if (this.validateForm.valid) {

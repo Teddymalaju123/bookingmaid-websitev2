@@ -47,11 +47,11 @@
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
-                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="age" nzRequired>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="birthday" nzRequired>
                         <span>อายุ</span>
                     </nz-form-label>
-                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your age!">
-                        <input nz-input id="age" formControlName="age" />
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your birthday!">
+                        <input nz-input id="birthday" formControlName="birthday" />
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
@@ -63,34 +63,35 @@
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
-                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
-                    <span>หมายเลขห้อง</span>
-                </nz-form-label>
-                <nz-tree-select style="width: 255px" [nzNodes]="nodes" nzShowSearch nzPlaceHolder="Please select"
-                    nzVirtualHeight="300px" nzHideUnMatched="true" formControlName="roomnumber"></nz-tree-select>
-                <nz-form-item nz-row class="register-area">
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
+                        <span>หมายเลขห้อง</span>
+                    </nz-form-label>
+                    <nz-tree-select style="width: 255px" [nzNodes]="nodes" nzShowSearch nzPlaceHolder="Please select"
+                        nzVirtualHeight="300px" nzHideUnMatched="true" formControlName="roomnumber"
+                        (ngModelChange)="onRoomNumberChange()"></nz-tree-select>
+                    <nz-form-item nz-row class="register-area">
+                    </nz-form-item>
                 </nz-form-item>
-            </nz-form-item>
-                <nz-form-item>
+                <!-- <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
                         <span>ขนาดห้อง</span>
                     </nz-form-label>
                     <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a roomsize" formControlName="roomsize"
-                    class="custom-margin" style="width: 255px">
-                    <nz-option nzLabel="26.5 - 29.5 sq m" nzValue="26.5 -29.5 sq m"></nz-option>
-                    <nz-option nzLabel="34.5 sq m" nzValue="34.5 sq m"></nz-option>
-                    <nz-option nzLabel="49.25 - 50.25 sq m" nzValue="49.25 - 50.25 sq m"></nz-option>
-                </nz-select>
-                </nz-form-item>
+                        class="custom-margin" style="width: 255px">
+                        <nz-option nzLabel="26.5 - 29.5 sq m" nzValue="26.5 -29.5 sq m"></nz-option>
+                        <nz-option nzLabel="34.5 sq m" nzValue="34.5 sq m"></nz-option>
+                        <nz-option nzLabel="49.25 - 50.25 sq m" nzValue="49.25 - 50.25 sq m"></nz-option>
+                    </nz-select>
+                </nz-form-item> -->
                 <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
                         <span>ลูกบ้าน</span>
                     </nz-form-label>
-                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
-                    class="custom-margin" style="width: 255px">
-                    <nz-option nzLabel="resident" nzValue=2></nz-option>
-                </nz-select>
-            </nz-form-item>
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
+                        class="custom-margin" style="width: 255px">
+                        <nz-option nzLabel="resident" nzValue=2></nz-option>
+                    </nz-select>
+                </nz-form-item>
                 <nz-form-item nz-row class="register-area">
                 </nz-form-item>
                 <nz-form-item nz-row class="register-area">
