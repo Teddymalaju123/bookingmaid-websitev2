@@ -63,26 +63,26 @@
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="selectfloor" nzRequired>
+                        <span>ชั้น</span>
+                    </nz-form-label>
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a floor" class="custom-margin"
+                        style="width: 255px"  formControlName="selectfloor" (ngModelChange)="onFloorChange($event)">
+                        <nz-option *ngFor="let floor of floorData" [nzLabel]="floor.label"
+                            [nzValue]="floor"></nz-option>
+                    </nz-select>
+                </nz-form-item>
+                <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomnumber" nzRequired>
                         <span>หมายเลขห้อง</span>
                     </nz-form-label>
-                    <nz-tree-select style="width: 255px" [nzNodes]="nodes" nzShowSearch nzPlaceHolder="Please select"
-                        nzVirtualHeight="300px" nzHideUnMatched="true" formControlName="roomnumber"
-                        (ngModelChange)="onRoomNumberChange()"></nz-tree-select>
-                    <nz-form-item nz-row class="register-area">
-                    </nz-form-item>
-                </nz-form-item>
-                <!-- <nz-form-item>
-                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
-                        <span>ขนาดห้อง</span>
-                    </nz-form-label>
-                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a roomsize" formControlName="roomsize"
-                        class="custom-margin" style="width: 255px">
-                        <nz-option nzLabel="26.5 - 29.5 sq m" nzValue="26.5 -29.5 sq m"></nz-option>
-                        <nz-option nzLabel="34.5 sq m" nzValue="34.5 sq m"></nz-option>
-                        <nz-option nzLabel="49.25 - 50.25 sq m" nzValue="49.25 - 50.25 sq m"></nz-option>
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a room" class="custom-margin"
+                        style="width: 255px" [formControlName]="'roomnumber'">
+                        <nz-option *ngFor="let room of this.roomData" [nzLabel]="room.label"
+                            [nzValue]="room.value"></nz-option>
                     </nz-select>
-                </nz-form-item> -->
+                </nz-form-item>
+
                 <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
                         <span>ลูกบ้าน</span>
