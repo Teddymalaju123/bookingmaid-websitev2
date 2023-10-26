@@ -56,13 +56,22 @@ export class MaidAddComponent {
     }
   }
 
-  handleUploadimg(event:any) {
+  handleUploadimg(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-        console.log(reader.result);
-        this.validateForm.get("profile")?.patchValue(reader.result)
+      let data : any = "";
+      if (reader.result?.toString().startsWith('data:image/png;base64,')) {
+        data = reader.result?.toString().replace('data:image/png;base64,', '');
+      } else if (reader.result?.toString().startsWith('data:image/jpeg;base64,')) {
+        data = reader.result?.toString().replace('data:image/jpeg;base64,', '');
+      } else {
+        data = reader.result?.toString();
+      }
+      console.log(reader.result);
+
+      this.validateForm.get("profile")?.patchValue(data)
     };
-}
+  }
 }

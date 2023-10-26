@@ -124,4 +124,8 @@ export class MaidListComponent implements OnInit {
     return ` ${date.getDate()} ${thaiMonth} ${thaiYear}`;
   }
 
+  convertImage(image:string) {
+    return "data:image/jpeg;base64," + image
+  }
+
 }

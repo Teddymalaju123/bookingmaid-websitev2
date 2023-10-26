@@ -31,7 +31,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let data of dataMaids">
-          <td><img style="width: 200px;" [src]="data.profile"></td>
+          <td><img style="width: 200px;"[src] = "convertImage(data.profile)" > </td>
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.username }}</td>
