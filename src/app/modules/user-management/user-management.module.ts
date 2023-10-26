@@ -14,6 +14,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
@@ -41,6 +43,8 @@ const routes: Routes = [
     NzModalModule,
     NzButtonModule,
     NzTreeSelectModule,
+    NzTimePickerModule,
+    NzDatePickerModule,
     
   ],
   exports: [RouterModule],

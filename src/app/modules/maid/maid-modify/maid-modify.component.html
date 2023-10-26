@@ -35,7 +35,7 @@
                         <span>เบอร์โทรศัพท์</span>
                     </nz-form-label>
                     <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your phone!">
-                        <input nz-input id="phone" formControlName="phone" />
+                        <input nz-input type="tel" id="phone" formControlName="phone" />
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
@@ -43,16 +43,14 @@
                         <span>เลขบัตรประชาชน</span>
                     </nz-form-label>
                     <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your id_card!">
-                        <input nz-input id="id_card" formControlName="id_card" />
+                        <input nz-input type="number" id="id_card" formControlName="id_card" />
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
-                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="age" nzRequired>
-                        <span>อายุ</span>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="birthday" nzRequired>
+                        <span>วันเกิด</span>
                     </nz-form-label>
-                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your age!">
-                        <input nz-input id="age" formControlName="age" />
-                    </nz-form-control>
+                        <nz-date-picker formControlName="birthday"></nz-date-picker>
                 </nz-form-item>
                 <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address" nzRequired>

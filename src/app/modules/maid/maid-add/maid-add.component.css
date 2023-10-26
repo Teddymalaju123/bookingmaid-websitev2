@@ -8,11 +8,9 @@
 
 .card-title .form-container {
   display: flex;
-  flex-direction: column; /* จะกระจายแนวดิ่ง */
-  align-items: center; /* จะกระจายแนวนอน (ให้อยู่ตรงกลาง) */
-  padding: 20px; /* ปรับแต่งตามความต้องการ */
-  /* อื่น ๆ ที่คุณต้องการ */
-}
+  flex-direction: column;
+  padding: 20px; 
+ }
 
 .form-nz {
   padding: 16px; 

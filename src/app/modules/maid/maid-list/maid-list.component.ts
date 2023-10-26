@@ -111,4 +111,17 @@ export class MaidListComponent implements OnInit {
     });
   }
 
+  convertToThaiDate(inputDate: Date): string {
+    const monthsInThai = [
+      "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+      "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+    ];
+  
+    const date = new Date(inputDate);
+    const thaiMonth = monthsInThai[date.getMonth()];
+    const thaiYear = date.getFullYear() + 543;
+  
+    return ` ${date.getDate()} ${thaiMonth} ${thaiYear}`;
+  }
+
 }

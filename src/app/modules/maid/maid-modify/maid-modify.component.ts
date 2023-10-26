@@ -41,7 +41,7 @@ export class MaidModifyComponent implements OnInit{
       lname: new FormControl<string | null>(null),
       phone: new FormControl<string | null>(null),
       id_card: new FormControl<number | null>(null, Validators.required),
-      age: new FormControl<number | null>(null),
+      birthday: new FormControl<Date | null>(null),
       address: new FormControl<string | null>(null),
     });
   }
@@ -59,7 +59,7 @@ export class MaidModifyComponent implements OnInit{
   }
 
   editUser() { 
-    const { id_user, username, password, fname, lname, phone, id_card, age, address} = this.validateForm.value;
+    const { id_user, username, password, fname, lname, phone, id_card, birthday, address} = this.validateForm.value;
     const formData = {
       id_user: id_user,
       username: username,
@@ -68,7 +68,7 @@ export class MaidModifyComponent implements OnInit{
       lname: lname,
       phone: phone,
       id_card: id_card,
-      age: age,
+      birthday: birthday,
       address: address,
     };
     this.service.editUser(this.selectedUserid!, formData).subscribe({

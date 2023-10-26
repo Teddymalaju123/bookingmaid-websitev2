@@ -10,8 +10,8 @@ export interface Maid {
   roomsize: string
   maid_rating: number
   password: string
-  id_card: number;
-  birthday:number
+  id_card: number
+  birthday:Date
   address:string
   type_id: number
   type_name: string

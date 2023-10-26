@@ -22,7 +22,7 @@
           <th>นามสกุล</th>
           <th>ชื่อผู้ใช้</th>
           <th>เบอร์โทรติดต่อ</th>
-          <th>อายุ</th>
+          <th>วันเกิด</th>
           <th>ที่อยู่</th>
           <th>เรทติ้ง</th>
           <th></th>
@@ -36,7 +36,7 @@
           <td>{{ data.lname }}</td>
           <td>{{ data.username }}</td>
           <td>{{ data.phone }}</td>
-          <td>{{ data.birthday }}</td>
+          <td>{{ this.convertToThaiDate(data.birthday) }}</td>
           <td>{{ data.address }}</td>
           <td>{{ data.maid_rating }}</td>
           <td>
