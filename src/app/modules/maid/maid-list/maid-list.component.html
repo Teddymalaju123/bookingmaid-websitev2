@@ -17,6 +17,7 @@
     <nz-table #dataMaid [nzData]="dataMaids">
       <thead>
         <tr>
+          <th>รูป</th>
           <th>ชื่อ</th>
           <th>นามสกุล</th>
           <th>ชื่อผู้ใช้</th>
@@ -30,6 +31,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let data of dataMaids">
+          <td><img style="width: 200px;" [src]="data.profile"></td>
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.username }}</td>

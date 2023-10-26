@@ -45,6 +45,9 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(id_user: number): void {
+    const deleteConfirmed = window.confirm('คุณต้องการลบลูกบ้านคนนี้ใช่หรือไม่?');
+
+    if (deleteConfirmed) {
     this.service.deleteUser(id_user).subscribe(
       (response) => {
         this.getResident();
@@ -55,5 +58,6 @@ export class UserListComponent implements OnInit {
       }
     );
   }
+}
 
 }

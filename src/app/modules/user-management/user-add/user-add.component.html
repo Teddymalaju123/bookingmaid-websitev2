@@ -31,11 +31,19 @@
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+                        <span>ชื่อเล่น</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your nickname!">
+                        <input nz-input id="nickname" formControlName="nickname" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>
                         <span>เบอร์โทรศัพท์</span>
                     </nz-form-label>
                     <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your phone!">
-                        <input nz-input id="phone" formControlName="phone" />
+                        <input nz-input type="number" id="phone" formControlName="phone" />
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
@@ -43,7 +51,7 @@
                         <span>เลขบัตรประชาชน</span>
                     </nz-form-label>
                     <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your id_card!">
-                        <input nz-input id="id_card" formControlName="id_card" />
+                        <input nz-input type="number" id="id_card" formControlName="id_card" />
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
@@ -80,16 +88,6 @@
                         style="width: 255px" [formControlName]="'roomnumber'">
                         <nz-option *ngFor="let room of this.roomData" [nzLabel]="room.label"
                             [nzValue]="room.value"></nz-option>
-                    </nz-select>
-                </nz-form-item>
-
-                <nz-form-item>
-                    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="roomsize" nzRequired>
-                        <span>ลูกบ้าน</span>
-                    </nz-form-label>
-                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" formControlName="type_id"
-                        class="custom-margin" style="width: 255px">
-                        <nz-option nzLabel="resident" nzValue=2></nz-option>
                     </nz-select>
                 </nz-form-item>
                 <nz-form-item nz-row class="register-area">
