@@ -13,7 +13,6 @@ import { NzModalService } from 'ng-zorro-antd/modal'; // ใช้ NzModalServic
   styleUrls: ['./maid-list.component.scss']
 })
 export class MaidListComponent implements OnInit {
-  // ไม่ต้องระบุ [x: string]: any; ใน class นี้
 
   private router: Router;
   private service: MaidService;
@@ -59,6 +58,7 @@ export class MaidListComponent implements OnInit {
       id_user: id_user,
       id_timeworktype: id_timeworktype,
       day: day,
+      statuswork: 5,
     };
 
     this.service.saveTime(formData).subscribe({

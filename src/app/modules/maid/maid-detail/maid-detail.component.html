@@ -17,6 +17,7 @@
             </nz-filter-trigger>
           </th>
           <th>นามสกุล</th>
+          <th>สถานะ</th>
           <th></th>
           <th></th>
         </tr>
@@ -29,6 +30,7 @@
           <td>{{ data.end_work }}</td>
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
+          <td>{{ data.status_description }}</td>
           <td>
             <button nz-button nzType="primary" (click)="deleteMaidTime(data.id_worktime)"
               class="custom-button">ลบตารางการทำงานแม่บ้าน</button>
