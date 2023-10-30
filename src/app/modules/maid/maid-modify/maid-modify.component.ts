@@ -84,7 +84,7 @@ export class MaidModifyComponent implements OnInit{
 
   deleteUser(): void {
     this.id_user = this.selectedUserid
-    const deleteConfirmed = window.confirm('คุณต้องการลบลูกแม่บ้านใช่หรือไม่?');
+    const deleteConfirmed = window.confirm('คุณต้องการลบแม่บ้านใช่หรือไม่?');
 
     if (deleteConfirmed) {
     this.service.deleteUser(this.id_user!).subscribe(
