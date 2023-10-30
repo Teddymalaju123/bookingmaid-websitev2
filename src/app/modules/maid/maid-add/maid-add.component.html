@@ -11,13 +11,13 @@
                 </nz-form-item>
                 <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>รหัสผ่าน</nz-form-label>
-                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your password!">
+                    <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip="Please input your password">
                         <input nz-input type="password" id="password" formControlName="password" />
                     </nz-form-control>
                 </nz-form-item>
                 <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="profile">รูปภาพ</nz-form-label>
-                    <input type="file" (change)="handleUploadimg($event)" class="form-control" accept="image/png,image/jpeg" required title="กรุณาใส่รูปภาพ" >
+                    <input type="file" (change)="handleUploadimg($event)" class="form-control" accept="image/png,image/jpeg" required title="กรุณาใส่รูปภาพ" style="width: 21%" />
                 </nz-form-item>
                 <nz-form-item>
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="fname" nzRequired>
@@ -63,16 +63,16 @@
                     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="birthday" nzRequired>
                         <span>วันเกิด</span>
                     </nz-form-label>
-                        <nz-date-picker formControlName="birthday"></nz-date-picker>
+                    <nz-date-picker formControlName="birthday" style="width: 21%"></nz-date-picker>
                 </nz-form-item>
                 <nz-form-item>
-                    <nz-form-label  [nzSm]="6" [nzXs]="24" [nzSpan]="7" nzRequired>address</nz-form-label>
-                    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please write your address!">
-                      <nz-textarea-count [nzMaxCharacterCount]="2000">
-                        <textarea formControlName="address" nz-input rows="2" placeholder="write your address"></textarea>
-                      </nz-textarea-count>
+                    <nz-form-label [nzSm]="6" [nzXs]="24" [nzSpan]="7" nzRequired>ที่อยู่</nz-form-label>
+                    <nz-form-control [nzSpan]="5" nzHasFeedback nzErrorTip="Please write your address">
+                        <nz-textarea-count [nzMaxCharacterCount]="1000">
+                            <textarea formControlName="address" nz-input rows="2" placeholder="กรอกที่อยู่ของคุณ"></textarea>
+                        </nz-textarea-count>
                     </nz-form-control>
-                  </nz-form-item>
+                </nz-form-item>                
                 <nz-form-item nz-row class="register-area">
                 </nz-form-item>
                 <nz-form-item nz-row class="register-area">

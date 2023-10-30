@@ -84,6 +84,9 @@ export class MaidModifyComponent implements OnInit{
 
   deleteUser(): void {
     this.id_user = this.selectedUserid
+    const deleteConfirmed = window.confirm('คุณต้องการลบลูกแม่บ้านใช่หรือไม่?');
+
+    if (deleteConfirmed) {
     this.service.deleteUser(this.id_user!).subscribe(
       (response) => {
         this.router.navigate(['/maid/maid-list']);
@@ -93,5 +96,6 @@ export class MaidModifyComponent implements OnInit{
         console.error('เกิดข้อผิดพลาดในการลบตารางการทำงานแม่บ้าน:', error);
       }
     );
+    }
   }
 }
