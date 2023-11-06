@@ -12,7 +12,6 @@ import { NzTreeNodeOptions } from 'ng-zorro-antd/tree';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit{
-  [x: string]: any;
   validateForm!: FormGroup;
   private router = inject(Router);
   private service = inject(ResidentService);

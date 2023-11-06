@@ -31,15 +31,23 @@ export class UserListComponent implements OnInit {
       }
     });
   }
-  
+
   add() {
     this.router.navigate(['/user/user-add']);
   }
 
-  goedit(id: any){
+  goedit(id: any) {
     this.router.navigate(['/user/user-edit'], {
       queryParams: {
-        id_user : id
+        id_user: id
+      }
+    });
+  }
+
+  godetailbooking(id: any) {
+    this.router.navigate(['/user/user-booking'], {
+      queryParams: {
+        id_user: id
       }
     });
   }
@@ -48,29 +56,29 @@ export class UserListComponent implements OnInit {
     const deleteConfirmed = window.confirm('คุณต้องการลบลูกบ้านคนนี้ใช่หรือไม่?');
 
     if (deleteConfirmed) {
-    this.service.deleteUser(id_user).subscribe(
-      (response) => {
-        this.getResident();
-        console.log('ลบข้อมูลสำเร็จ');
-      },
-      (error) => {
-        console.error('เกิดข้อผิดพลาดในการลบตารางการทำงานแม่บ้าน:', error);
-      }
-    );
+      this.service.deleteUser(id_user).subscribe(
+        (response) => {
+          this.getResident();
+          console.log('ลบข้อมูลสำเร็จ');
+        },
+        (error) => {
+          console.error('เกิดข้อผิดพลาดในการลบตารางการทำงานแม่บ้าน:', error);
+        }
+      );
+    }
   }
-}
 
-convertToThaiDate(inputDate: Date): string {
-  const monthsInThai = [
-    "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
-    "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
-  ];
+  convertToThaiDate(inputDate: Date): string {
+    const monthsInThai = [
+      "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+      "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+    ];
 
-  const date = new Date(inputDate);
-  const thaiMonth = monthsInThai[date.getMonth()];
-  const thaiYear = date.getFullYear() + 543;
+    const date = new Date(inputDate);
+    const thaiMonth = monthsInThai[date.getMonth()];
+    const thaiYear = date.getFullYear() + 543;
 
-  return ` ${date.getDate()} ${thaiMonth} ${thaiYear}`;
-}
+    return ` ${date.getDate()} ${thaiMonth} ${thaiYear}`;
+  }
 
 }

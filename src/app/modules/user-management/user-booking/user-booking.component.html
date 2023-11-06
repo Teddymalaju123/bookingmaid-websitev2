@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header" style="display: flex;
+      justify-content: space-between;;">
+      <h2>ลูกบ้าน</h2>
+    </div>
+    <div class="card-body">
+      <nz-table #dataResidents [nzData]="dataResident">
+        <thead>
+          <tr>
+            <th>วันที่จอง</th>
+            <th>จำนวนชั่วโมงการทำงาน</th>
+            <th>เวลาเริ่มงาน</th>
+            <th>รายละเอียดการทำความสะอาด</th>
+            <th>ราคา</th>
+            <th>ชื่อ</th>
+            <th>นามสกุล</th>
+            <th>เบอร์โทรติดต่อ</th>
+            <th>สถานะ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of dataResidents.data">
+            <td>{{ this.convertToThaiDate(data.booking_date) }}</td>
+            <td>{{ data.work_hour }}</td>
+            <td>{{ data.start_work }}</td>
+            <td>{{ data.descriptmaid }}</td>
+            <td>{{ data.service_price }}</td>
+            <td>{{ data.fname }}</td>
+            <td>{{ data.lname }}</td>
+            <td>{{ data.phone }}</td>
+            <td>{{ data.status_description }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>

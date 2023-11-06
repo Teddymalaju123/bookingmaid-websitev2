@@ -16,18 +16,21 @@ import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { UserBookingComponent } from './user-booking/user-booking.component';
 
 const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
   { path: 'user-add', component: UserAddComponent },
   { path: 'user-edit', component: UserEditComponent },
+  { path: 'user-booking', component: UserBookingComponent },
 ];
 
 @NgModule({
   declarations: [
     UserListComponent,
     UserAddComponent,
-    UserEditComponent
+    UserEditComponent,
+    UserBookingComponent
   ],
   imports: [
     RouterModule.forChild(routes),

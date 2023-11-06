@@ -17,6 +17,7 @@
           <th>ที่อยู่</th>
           <th></th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +36,10 @@
           <td>
             <button nz-button nzType="primary" (click)="goedit(data.id_user)"
               class="custom-primary-button">แก้ไขข้อมูลลูกบ้าน</button>
+          </td>
+          <td>
+            <button nz-button nzType="primary" (click)="godetailbooking(data.id_user)"
+              class="custom-primary-button">ดูข้อมูลการจองลูกบ้าน</button>
           </td>
         </tr>
       </tbody>

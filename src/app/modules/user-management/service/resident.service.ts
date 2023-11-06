@@ -23,5 +23,9 @@ export class ResidentService {
     return this._http.post(environment.api_url + '/user/edit/'  + selectedUserid,formData);
   }
 
+  getBookResident(id_user: number): Observable<any> {
+    return this._http.get(environment.api_url + '/books/get-book-resident/'  + id_user);
+  }
+
   
 }
