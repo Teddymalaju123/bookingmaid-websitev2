@@ -35,6 +35,11 @@ export class MaidService {
   getbyIdMaid(id_user: any): Observable<any> {
     return this._http.get(environment.api_url + '/user/get-resident/' + id_user);
   }
+
+  getBookMaid(id_user: number): Observable<any> {
+    return this._http.get(environment.api_url + '/books/get-book-maid/'  + id_user);
+  }
+
 }
 
 

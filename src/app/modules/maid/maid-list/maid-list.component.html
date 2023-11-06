@@ -27,6 +27,7 @@
           <th>เรทติ้ง</th>
           <th></th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +48,11 @@
           <td>
             <button nz-button nzType="primary" (click)="goedit(data.id_user)" class="custom-button">
               แก้ไขข้อมูลแม่บ้าน
+            </button>
+          </td>
+          <td>
+            <button nz-button nzType="primary" (click)="godetailbooking(data.id_user)" class="custom-button">
+              ดูประวัติการจอง
             </button>
           </td>
         </tr>

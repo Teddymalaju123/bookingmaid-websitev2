@@ -22,6 +22,7 @@ import { MaidModifyComponent } from './maid-modify/maid-modify.component';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { MaidBookingComponent } from './maid-booking/maid-booking.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     MaidDetailComponent,
     EditMaidComponent,
     MaidModifyComponent,
+    MaidBookingComponent,
   ],
   imports: [
     FormsModule,

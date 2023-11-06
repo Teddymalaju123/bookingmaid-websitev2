@@ -111,6 +111,14 @@ export class MaidListComponent implements OnInit {
     });
   }
 
+  godetailbooking(id: any) {
+    this.router.navigate(['/maid/maid-booking'], {
+      queryParams: {
+        id_user: id
+      }
+    });
+  }
+
   convertToThaiDate(inputDate: Date): string {
     const monthsInThai = [
       "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
