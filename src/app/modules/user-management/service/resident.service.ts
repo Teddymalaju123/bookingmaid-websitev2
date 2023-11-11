@@ -24,7 +24,7 @@ export class ResidentService {
   }
 
   getBookResident(id_user: number): Observable<any> {
-    return this._http.get(environment.api_url + '/books/get-book-resident/'  + id_user);
+    return this._http.get(environment.api_url + '/books/get-book-idresident/'  + id_user);
   }
 
   
