@@ -38,6 +38,10 @@ export class UserBookingComponent implements OnInit{
     });
   }
 
+  convertImage(image:string) {
+    return "data:image/jpeg;base64," + image
+  }
+
   convertToThaiDate(inputDate: Date): string {
     const monthsInThai = [
       "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",

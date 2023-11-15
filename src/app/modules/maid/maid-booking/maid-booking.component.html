@@ -12,6 +12,7 @@
             <th>เวลาเริ่มงาน</th>
             <th>รายละเอียดการทำความสะอาด</th>
             <th>ราคา</th>
+            <th>สลิปชำระการบริการ</th>
             <th>ชื่อ</th>
             <th>นามสกุล</th>
             <th>เบอร์โทรติดต่อ</th>
@@ -25,6 +26,7 @@
             <td>{{ data.start_work }}</td>
             <td>{{ data.descriptmaid }}</td>
             <td>{{ data.service_price }}</td>
+            <td><img style="width: 200px;"[src] = "convertImage(data.paymentslip)" > </td>
             <td>{{ data.fname }}</td>
             <td>{{ data.lname }}</td>
             <td>{{ data.phone }}</td>
