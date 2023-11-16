@@ -8,17 +8,25 @@
       <thead>
         <tr>
           <th>เลขห้อง</th>
+          <th>หมายเลขการจอง</th>
           <th>ชื่อ</th>
           <th>นามสกุล</th>
           <th>ปัญหา</th>
+          <th>สถานะ</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let data of dataFeedbacks.data">
           <td>{{ data.roomnumber }}</td>
+          <td>{{ data.id_booking }}</td>
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.feedback_description }}</td>
+          <td>{{ data.status_description }}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="updateStatus(data.feedback_id)">รับเรื่อง</button>
+          </td>
         </tr>
       </tbody>
     </nz-table>
