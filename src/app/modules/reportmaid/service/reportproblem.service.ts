@@ -11,6 +11,10 @@ export class ReportProblemService {
     return this._http.get(environment.api_url + '/feedback/getfeed');
   }
 
+  getBooking(id_booking: number) {
+    return this._http.get(environment.api_url + '/books/get-book-idbook/' + id_booking);
+  }
+
   updateStatus(requestBody: any): Observable<any>{
     return this._http.post(environment.api_url + '/feedback/update-status', requestBody);
   }

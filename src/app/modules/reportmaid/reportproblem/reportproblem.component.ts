@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Maid } from '../../maid/interface/miad.interface';
 import { Feedback } from '../interface/reportmaid.interface';
 import { ReportProblemService } from '../service/reportproblem.service';
+import { Router } from '@angular/router';
 
 
 
@@ -13,6 +14,7 @@ import { ReportProblemService } from '../service/reportproblem.service';
 export class ReportproblemComponent implements OnInit {
   private service = inject(ReportProblemService);
   private _changeDetectorRef = inject(ChangeDetectorRef);
+  private router = inject(Router);
   feedbacks: Feedback[] = [];
 
   ngOnInit(): void {
@@ -48,5 +50,12 @@ export class ReportproblemComponent implements OnInit {
     });
   }
   
+  goedit(id: any){
+    this.router.navigate(['/report/report-booking'], {
+      queryParams: {
+        id_booking : id
+      }
+    });
+  }
 
 }
