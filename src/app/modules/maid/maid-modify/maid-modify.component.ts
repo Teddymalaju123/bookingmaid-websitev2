@@ -37,6 +37,7 @@ export class MaidModifyComponent implements OnInit{
       id_user: new FormControl<number | null>(null),
       username: new FormControl<string | null>(null, Validators.required),
       password: new FormControl<string | null>(null, Validators.required),
+      profile: new FormControl<string | null>(null),
       fname: new FormControl<string | null>(null),
       lname: new FormControl<string | null>(null),
       phone: new FormControl<string | null>(null),
@@ -59,11 +60,12 @@ export class MaidModifyComponent implements OnInit{
   }
 
   editUser() { 
-    const { id_user, username, password, fname, lname, phone, id_card, birthday, address} = this.validateForm.value;
+    const { id_user, username, password, profile, fname, lname, phone, id_card, birthday, address} = this.validateForm.value;
     const formData = {
       id_user: id_user,
       username: username,
       password: password,
+      profile: profile,
       fname: fname,
       lname: lname,
       phone: phone,
@@ -97,5 +99,24 @@ export class MaidModifyComponent implements OnInit{
       }
     );
     }
+  }
+
+  handleUploadimg(event: any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      let data : any = "";
+      if (reader.result?.toString().startsWith('data:image/png;base64,')) {
+        data = reader.result?.toString().replace('data:image/png;base64,', '');
+      } else if (reader.result?.toString().startsWith('data:image/jpeg;base64,')) {
+        data = reader.result?.toString().replace('data:image/jpeg;base64,', '');
+      } else {
+        data = reader.result?.toString();
+      }
+      console.log(reader.result);
+
+      this.validateForm.get("profile")?.patchValue(data)
+    };
   }
 }
