@@ -27,9 +27,7 @@ export class LayoutComponent implements OnInit {
     });
   }
 
-  ngAfterViewInit(): void {
-
-  }
+  
 
   otherClick() {
     $(document).ready(function () {
@@ -43,8 +41,6 @@ export class LayoutComponent implements OnInit {
     window.scroll(0, 0);
   }
 
-  toTop() {
 
-  }
 
 }

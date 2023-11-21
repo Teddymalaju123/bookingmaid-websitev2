@@ -8,7 +8,7 @@ export interface Maid {
   phone: string
   roomnumber: string
   roomsize: string
-  maid_rating: number
+  maid_sumrating: number
   password: string
   id_card: number
   birthday:Date
