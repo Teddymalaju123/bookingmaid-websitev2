@@ -4,11 +4,9 @@
       <div class="col-xl-9">
         <h2>แม่บ้าน</h2>
       </div>
-      <div class="col-sm-3" style="justify-content: right;"><button nz-button nzType="primary" (click)="add()" class="custom-button">+
+      <div class="col-sm-3" >
+        <button nz-button nzType="primary" (click)="add()" class="custom-button" style="right: auto;">+
           เพิ่มแม่บ้าน
-        </button>
-        <button nz-button nzType="primary" (click)="detail()" class="custom-button" style="margin-left: 40px;">
-          ดูรายละเอียดตารางงานแม่บ้าน
         </button>
       </div>
     </div>
@@ -28,11 +26,12 @@
           <th></th>
           <th></th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let data of dataMaids">
-          <td><img style="width: 200px;"[src] = "convertImage(data.profile)" > </td>
+          <td><img style="width: 200px;" [src]="convertImage(data.profile)"> </td>
           <td>{{ data.fname }}</td>
           <td>{{ data.lname }}</td>
           <td>{{ data.username }}</td>
@@ -54,6 +53,12 @@
             <button nz-button nzType="primary" (click)="godetailbooking(data.id_user)" class="custom-button">
               ดูประวัติการจอง
             </button>
+          </td>
+          <td>
+            <button nz-button nzType="primary" (click)="detail(data.id_user)" class="custom-button">
+              ดูรายละเอียดตารางงานแม่บ้าน
+            </button>
+            
           </td>
         </tr>
       </tbody>

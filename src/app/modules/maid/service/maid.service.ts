@@ -28,8 +28,12 @@ export class MaidService {
     return this._http.delete(environment.api_url + '/maidwork/deletemaid/' + id_worktime);
   }
 
-  getMaidById() {
-    return this._http.get(environment.api_url + '/maidwork/getwork');
+  getMaidById(id_user: number) {
+    return this._http.get(environment.api_url + '/maidwork/getwork/'+ id_user);
+  }
+
+  getMaidWorkByIdWork(id_worktime: number) {
+    return this._http.get(environment.api_url + '/maidwork/getworkbyidwork/'+ id_worktime);
   }
 
   getbyIdMaid(id_user: any): Observable<any> {

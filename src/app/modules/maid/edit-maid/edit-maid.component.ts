@@ -26,11 +26,26 @@ export class EditMaidComponent implements OnInit{
       if (idWorktime) {
         this.selectedWorkId = idWorktime;
         console.log(this.selectedWorkId);
+        this.getWork()
       }
     });
     this.validateForm = this.fb.group({
       day: [null, Validators.required],
       id_timeworktype: [null], 
+    });
+  }
+
+  getWork() {
+    this.service.getMaidWorkByIdWork(this.selectedWorkId!).subscribe({
+      next: (_response: any) => {
+        console.log(_response);
+        const data: any = _response;
+        this._changeDetectorRef.detectChanges()
+        this.validateForm.patchValue(data[0]);
+      },
+      error: (err) => {
+        console.log('error', err);
+      },
     });
   }
 

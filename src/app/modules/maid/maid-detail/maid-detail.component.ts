@@ -22,6 +22,13 @@ export class MaidDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this._route.queryParams.subscribe(params => {
+      const idUser = params['id_user'];
+      if (idUser) {
+        this.id_user = idUser;
+        console.log(this.id_user);
+      }
+    });
     this._route.queryParams.subscribe(_response => {
       this.getWork();
       this.reset();
@@ -29,7 +36,7 @@ export class MaidDetailComponent implements OnInit {
   }
 
   getWork() {
-    this.maidService.getMaidById().subscribe({
+    this.maidService.getMaidById(this.id_user).subscribe({
       next: (_response: any) => {
         console.log(_response);
         this.data = _response
