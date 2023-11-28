@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NzModalService } from 'ng-zorro-antd/modal'; // ใช้ NzModalService แทน NzModalRef
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-maid-list',
@@ -43,6 +44,10 @@ export class MaidListComponent implements OnInit {
   showModal(id_user: number): void {
     this.selectedUserId = id_user;
     this.isVisible = true;
+    this.validateForm = this.fb.group({
+      day: [null, Validators.required],
+      id_timeworktype: [null, Validators.required], 
+    });
   }
 
   handleOk(): void {
@@ -53,20 +58,21 @@ export class MaidListComponent implements OnInit {
       console.error('Please select a user.');
       return;
     }
-
-    const formData = {
+    const formData ={
       id_user: id_user,
       id_timeworktype: id_timeworktype,
-      day: day,
+      day: moment(day).format('YYYY/MM/DD'),
       statuswork: 5,
     };
 
     this.service.saveTime(formData).subscribe({
       next: (_response: any) => {
         this.isVisible = false;
+        alert("สร้างตารางงานสำเร็จ");
       },
       error: (err) => {
         console.error('Error', err);
+        alert("ไม่สามารถสร้างตารางงานซ้ำกันได้");
       },
     });
   }
@@ -79,10 +85,15 @@ export class MaidListComponent implements OnInit {
     this.getMaid();
     this.validateForm = this.fb.group({
       day: [null, Validators.required],
-      id_timeworktype: [null], 
+      id_timeworktype: [null, Validators.required], 
     });
   }
 
+  disabledDate = (current: Date): boolean => {
+    // กำหนดเงื่อนไขที่ไม่ให้เลือกวันที่ก่อนหน้าปัจจุบัน
+    return current < new Date();
+  };
+  
   getMaid(): void {
     this.service.getMaid().subscribe({
       next: (response: any) => {

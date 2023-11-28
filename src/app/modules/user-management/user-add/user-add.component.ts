@@ -62,18 +62,18 @@ export class UserAddComponent implements OnInit {
       id_user: new FormControl<number | null>(null),
       username: new FormControl<string | null>(null, Validators.required),
       password: new FormControl<string | null>(null, Validators.required),
-      profile: new FormControl<Blob | null>(null, Validators.required),
+      profile: new FormControl<Blob | null>(null),
       fname: new FormControl<string | null>(null, Validators.required),
       lname: new FormControl<string | null>(null, Validators.required),
-      nickname: new FormControl<string | null>(null, Validators.required),
+      nickname: new FormControl<string | null>(null),
       phone: new FormControl<string | null>(null, Validators.required),
       selectfloor: this.selectfloorControl,
       id_card: new FormControl<number | null>(null, Validators.required),
       birthday: new FormControl<Date | null>(null, Validators.required),
       address: new FormControl<string | null>(null, Validators.required),
-      roomnumber: new FormControl<string | null>(null, Validators.required),
-      roomsize: new FormControl<string | null>(null, Validators.required),
-      maid_rating: new FormControl<number | null>(null, Validators.required),
+      roomnumber: new FormControl<string | null>(null),
+      roomsize: new FormControl<string | null>(null),
+      maid_sumrating: new FormControl<number | null>(null),
       type_id: new FormControl<number | null>(2),
     });
 
@@ -95,22 +95,25 @@ export class UserAddComponent implements OnInit {
 }
 
 
-  submitForm(): void {
-    if (this.validateForm.valid) {
-      this.service.createUser(this.validateForm.value, '/some-url').subscribe({
-        next: (response: any) => {
-          const data: any = response;
-          this.dataMaids = data;
-          this.changeDetectorRef?.detectChanges();
-          this.router.navigate(['/dashboard']);
-        },
-        error: (err) => {
-          console.log("error", err);
-        }
-      });
-      console.log('submit', this.validateForm.value);
-    } else {
-      console.log('error mai kao valid', this.validateForm.value);
-    }
+submitForm(): void {
+  if (this.validateForm.valid) {
+    this.service.createUser(this.validateForm.value, '/some-url').subscribe({
+      next: (response: any) => {
+        const data: any = response;
+        this.dataMaids = data;
+        this.changeDetectorRef?.detectChanges();
+        this.router.navigate(['/dashboard']);
+        alert('สมัครเสร็จสิ้น');
+      },
+      error: (err) => {
+        console.log("error", err);
+      }
+    });
+    console.log('submit', this.validateForm.value);
+  } else {
+    alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+    console.log('error mai kao valid', this.validateForm.value);
   }
+}
+
 }

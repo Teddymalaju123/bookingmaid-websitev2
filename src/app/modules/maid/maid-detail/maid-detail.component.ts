@@ -19,7 +19,11 @@ export class MaidDetailComponent implements OnInit {
   mode: string = 'date'; 
   searchValue = '';
   visible = false;
-
+  startDate: Date | null = null;
+  endDate: Date | null = null;
+  date = null;
+  originalData: any[] = [];
+  
 
   ngOnInit(): void {
     this._route.queryParams.subscribe(params => {
@@ -41,6 +45,7 @@ export class MaidDetailComponent implements OnInit {
         console.log(_response);
         this.data = _response
         this._changeDetectorRef.detectChanges()
+        this.filterData();
       },
       error: (err) => {
         console.log('error', err);
@@ -48,16 +53,33 @@ export class MaidDetailComponent implements OnInit {
     });
   }
 
-
-  convertToThaiDayOfWeek(inputDate: string): string {
-    const daysInThai = [
-      "วันอาทิตย์", "วันจันทร์", "วันอังคาร", "วันพุธ", "วันพฤหัสบดี", "วันศุกร์", "วันเสาร์"
-    ];
-    const date = new Date(inputDate);
-    const thaiDayOfWeek = daysInThai[date.getDay()];
-    return thaiDayOfWeek;
+  onChange(result: Date[]): void {
+    console.log('onChange: ', result);
+    this.startDate = result[0];
+    this.endDate = result[1];
+    this.filterData();
   }
 
+  reset() {
+    this.searchValue = '';
+    this.startDate = null;
+    this.endDate = null;
+    this.filterData();
+  }
+
+  search() {
+    this.filterData();
+  }
+
+  filterData() {
+    // Filter data based on the selected date range and search value
+    this.data = this.data.filter((item) =>
+      (!this.startDate || new Date(item.day) >= this.startDate) &&
+      (!this.endDate || new Date(item.day) <= this.endDate) &&
+      (!this.searchValue || item.day.includes(this.searchValue))
+    );
+  }
+  
   convertToThaiDate(inputDate: string): string {
     const monthsInThai = [
       "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
@@ -70,19 +92,12 @@ export class MaidDetailComponent implements OnInit {
   
     return ` ${date.getDate()} ${thaiMonth} ${thaiYear}`;
   }
-  
-  reset(): void {
-    this.searchValue = '';
-    this.search();
-  }
-
-  search(): void {
-    this.visible = false;
-    this.data = this.data.filter((item: any) => item.fname.indexOf(this.searchValue) !== -1);
-  }
-
 
   deleteMaidTime(id_worktime: number): void {
+    const deleteConfirmed = window.confirm('คุณต้องการลบลูกบ้านคนนี้ใช่หรือไม่?');
+
+
+    if (deleteConfirmed) {
     this.maidService.deleteMaidTime(id_worktime).subscribe(
       () => {
         this.getWork();
@@ -93,6 +108,7 @@ export class MaidDetailComponent implements OnInit {
       }
     );
   }
+}
 
   editmaid(id: any) {
     this._router.navigate(['/maid/edit-maid'], {

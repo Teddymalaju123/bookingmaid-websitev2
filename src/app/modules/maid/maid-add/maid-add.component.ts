@@ -27,9 +27,9 @@ export class MaidAddComponent {
       lname: new FormControl<string | null>(null, Validators.required),
       nickname: new FormControl<string | null>(null, Validators.required),
       phone: new FormControl<string | null>(null, Validators.required),
-      roomnumber: new FormControl<string | null>(null, Validators.required),
-      roomsize: new FormControl<string | null>(null, Validators.required),
-      maid_rating: new FormControl<number | null>(null, Validators.required),
+      roomnumber: new FormControl<string | null>(null),
+      roomsize: new FormControl<string | null>(null),
+      maid_rating: new FormControl<number | null>(0),
       id_card: new FormControl<number | null>(null, Validators.required),
       birthday: new FormControl<Date | null>(null, Validators.required),
       address: new FormControl<string | null>(null, Validators.required),
@@ -45,6 +45,7 @@ export class MaidAddComponent {
           this.dataMaids = data;
           this.changeDetectorRef?.detectChanges();
           this.router.navigate(['/maid/maid-list']);
+          alert('สมัครเสร็จสิ้น');
         },
         error: (err) => {
           console.log("error", err);
@@ -53,6 +54,7 @@ export class MaidAddComponent {
       console.log('submit', this.validateForm.value);
     } else {
       console.log('error mai kao valid', this.validateForm.value);
+      alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
     }
   }
 

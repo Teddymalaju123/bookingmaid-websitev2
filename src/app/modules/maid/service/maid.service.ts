@@ -29,7 +29,7 @@ export class MaidService {
   }
 
   getMaidById(id_user: number) {
-    return this._http.get(environment.api_url + '/maidwork/getwork/'+ id_user);
+    return this._http.get(environment.api_url + '/maidwork/getworkforweb/'+ id_user);
   }
 
   getMaidWorkByIdWork(id_worktime: number) {

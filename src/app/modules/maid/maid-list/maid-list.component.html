@@ -1,10 +1,9 @@
 <div class="card">
   <div class="card-header">
     <div class="row">
-      <div class="col-xl-9">
+      <div style="display: flex;
+      justify-content: space-between;">
         <h2>แม่บ้าน</h2>
-      </div>
-      <div class="col-sm-3" >
         <button nz-button nzType="primary" (click)="add()" class="custom-button" style="right: auto;">+
           เพิ่มแม่บ้าน
         </button>
@@ -58,7 +57,7 @@
             <button nz-button nzType="primary" (click)="detail(data.id_user)" class="custom-button">
               ดูรายละเอียดตารางงานแม่บ้าน
             </button>
-            
+
           </td>
         </tr>
       </tbody>
@@ -74,7 +73,7 @@
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="dayselector" nzRequired>
           <span>วันที่</span>
         </nz-form-label>
-        <nz-date-picker formControlName="day"></nz-date-picker>
+        <nz-date-picker formControlName="day" [nzDisabledDate]="disabledDate"></nz-date-picker>
         <br />
       </nz-form-item>
       <nz-form-item>
@@ -83,8 +82,8 @@
         </nz-form-label>
         <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a time" formControlName="id_timeworktype"
           class="custom-margin" style="width: 255px">
-          <nz-option nzLabel="ช่วงเช้า" nzValue="1"></nz-option>
-          <nz-option nzLabel="ช่วงบ่าย" nzValue="2"></nz-option>
+          <nz-option nzLabel="ช่วงเช้า (09:00 - 12:00)" nzValue="1"></nz-option>
+          <nz-option nzLabel="ช่วงบ่าย (13:00 - 17:00)" nzValue="2"></nz-option>
         </nz-select>
       </nz-form-item>
     </form>

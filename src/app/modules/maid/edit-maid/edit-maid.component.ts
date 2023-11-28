@@ -31,7 +31,7 @@ export class EditMaidComponent implements OnInit{
     });
     this.validateForm = this.fb.group({
       day: [null, Validators.required],
-      id_timeworktype: [null], 
+      id_timeworktype: [null, Validators.required], 
     });
   }
 
@@ -61,9 +61,11 @@ export class EditMaidComponent implements OnInit{
       next: (_response: any) => {
         this._changeDetectorRef?.detectChanges();
         this.router.navigate(['/maid/maid-detail']);
+        alert("แก้ไขเสร็จสิ้น");
       },
       error: (err) => {
         console.error('Error', err);
+        alert("กรุณากรอกข้อมูลให้ครบ");
       },
     });
   }

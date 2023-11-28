@@ -76,9 +76,11 @@ export class UserEditComponent implements OnInit{
       next: (_response: any) => {
         this._changeDetectorRef?.detectChanges();
         this.router.navigate(['/user/user-list']);
+        alert("แก้ไขเสร็จสิ้น");
       },
       error: (err) => {
         console.error('Error', err);
+        alert("กรุณากรอกให้ครบ");
       },
     });
   }

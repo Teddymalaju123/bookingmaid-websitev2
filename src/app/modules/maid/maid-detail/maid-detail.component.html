@@ -1,39 +1,37 @@
 <div class="card">
-  <div class="card-header" style="display: flex;
-      justify-content: space-between;;">
+  <div class="card-header" style="display: flex; justify-content: space-between;">
     <h2>ตารางงานแม่บ้าน</h2>
   </div>
   <div class="card-body">
-    <nz-table #dataItem [nzData]="data" nzTableLayout="fixed">
-      <thead>
-        <tr>
-          <th>วัน</th>
-          <th>วันที่</th>
-          <th>เวลาเริ่มงาน</th>
-          <th>เวลาเสร็จงาน</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of dataItem.data">
-          <td>{{ this.convertToThaiDayOfWeek(data.day) }}</td>
-          <td>{{ this.convertToThaiDate(data.day) }}</td>
-          <td>{{ data.start_work }}</td>
-          <td>{{ data.end_work }}</td>
-          <td>
-            <button nz-button nzType="primary" (click)="deleteMaidTime(data.id_worktime)"
-              class="custom-button">ลบตารางการทำงานแม่บ้าน</button>
-          </td>
-          <td>
-            <button nz-button nzType="primary" (click)="editmaid(data.id_worktime )" class="custom-button"
-              style="margin-left: 40px;">
-              แก้ไขข้อมูล
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
+    <div class="search-box">
+      <nz-table #dataItem [nzData]="data" nzTableLayout="fixed">
+        <thead>
+          <tr>
+            <th>
+              วันที่
+              <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+            </th>
+            <th>เวลาเริ่มงาน</th>
+            <th>เวลาเสร็จงาน</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataItem.data">
+            <td>{{ convertToThaiDate(item.day) }}</td>
+            <td>{{ item.start_work }}</td>
+            <td>{{ item.end_work }}</td>
+            <td>
+              <button nz-button nzType="primary" (click)="deleteMaidTime(item.id_worktime)" class="custom-button">ลบงาน</button>
+            </td>
+            <td>
+              <button nz-button nzType="primary" (click)="editmaid(item.id_worktime)" class="custom-button" style="margin-left: 40px;">แก้ไขข้อมูล</button>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
     <button nz-button nzType="primary" (click)="Back()" class="custom-button">Back</button>
     <nz-dropdown-menu #menu="nzDropdownMenu">
       <div class="ant-table-filter-dropdown">
