@@ -23,6 +23,7 @@ export class MaidDetailComponent implements OnInit {
   endDate: Date | null = null;
   date = null;
   originalData: any[] = [];
+  workfilter: any[] = [];
   
 
   ngOnInit(): void {
@@ -73,7 +74,7 @@ export class MaidDetailComponent implements OnInit {
 
   filterData() {
     // Filter data based on the selected date range and search value
-    this.data = this.data.filter((item) =>
+    this.workfilter = this.data.filter((item) =>
       (!this.startDate || new Date(item.day) >= this.startDate) &&
       (!this.endDate || new Date(item.day) <= this.endDate) &&
       (!this.searchValue || item.day.includes(this.searchValue))
